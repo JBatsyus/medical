@@ -40,17 +40,18 @@ h2,
     font-weight: 500;
     line-height: 1.2;
 
-    @include mobile {
+    @include tablet {
+        font-weight: 600;
         font-size: 24px;
+        line-height: 1.1;
+    }
+
+    @include mobile {
+        line-height: 1.2;
     }
 }
 
-h3,
-.h3 {
-    font-family: var(--font-family-accent);
-    font-weight: 500;
-    font-size: 48px;
-}
+
 
 a,
 button,
@@ -82,10 +83,10 @@ a {
 }
 
 .section {
-    padding-block: 120px;
+    margin-bottom: 160px;
 
     @include laptop-s {
-        padding-block: 60px;
+        margin-bottom: 80px;
     }
 }
 

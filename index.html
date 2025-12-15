@@ -1,11 +1,120 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEDLAND</title>
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./libs/plugins/swiper-bundle.min.css">
+
 </head>
+
 <body>
-    
+    <!--— HEADER START -->
+    <header class="header" aria-label="Шапка сайта">
+        <div class="container">
+            <div class="header__top">
+                <div class="header__contacts">
+                    <div class="header__contact-item">
+                        <span class="icon icon--location">
+                            г. Москва, ул. Тверская 122, офис 6
+                        </span>
+
+                    </div>
+                    <div class="header__contact-item">
+                        <span class="icon icon--university">
+                            Университет дружбы народов
+                        </span>
+
+                    </div>
+                </div>
+                <div class="header__actions">
+                    <button class="header__socials-btn" aria-expanded="false" aria-haspopup="true">
+                        Социальные сети
+
+                    </button>
+                    <a href="#" class="header__phone-btn btn-text">+7 999 999-99-99</a>
+                </div>
+            </div>
+
+            <div class="header__bottom">
+                <a href="#" class="header__logo" aria-label="Medland — Главная страница">
+                    <img class="icon icon--medland" aria-hidden="true" src="./images/logo.svg" width="213" height="40"
+                        alt="">
+                </a>
+                <nav class="header__menu" aria-label="Основное меню">
+                    <ul class="header__menu-list">
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Главная</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Услуги</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Наши работы</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Преимущества</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Специалисты</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Документы</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Отзывы</a></li>
+                        <li class="header__menu-item"><a href="#" class="header__menu-link">Вопросы</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="header__cta-btn button ">Заказать звонок</a>
+            </div>
+        </div>
+    </header>
+    <!--— HEADER END -->
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="main" aria-label="Содержимое страницы">
+        <!--— SECTION HERO START-->
+        <!-- <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1 class="hero__title">За красивой и здоровой улыбкой в клинику <span
+                                class="hero__title-highlight">Medland!</span></h1>
+                        <p class="hero__description">
+                            Медицинский центр Medland — это профессиональная помощь, современное оборудование и
+                            топовые специалисты в сфере стоматологии.
+                            Мы сделаем вашу улыбку здоровой и красивой.
+                        </p>
+                        <div class="hero__actions">
+                            <a href="#" class="btn btn--primary">Бесплатная консультация</a>
+                            <span class="hero__note">*Перезвоним в течение 15 минут</span>
+                        </div>
+                    </div>
+                    <div class="hero__image">
+                        <img src="https://via.placeholder.com/600x400" alt="Стоматолог в маске проводит осмотр пациента"
+                            class="hero__img" loading="lazy" />
+                        <div class="hero__promo-card">
+                            <h3 class="hero__promo-title">Лечение заболеваний десен и полости рта</h3>
+                            <p class="hero__promo-desc">Терапия и лечение гингивита, пародонтита и других
+                                воспалительных процессов</p>
+                            <div class="hero__promo-price">
+                                <span class="hero__price-current">2799 ₽</span>
+                                <span class="hero__price-old">4599 ₽</span>
+                                <span class="hero__price-discount">-16%</span>
+                            </div>
+                        </div>
+                        <button class="hero__nav-btn hero__nav-btn--prev" aria-label="Предыдущий слайд">
+                            <svg class="icon icon--arrow-left" aria-hidden="true">
+                                <use xlink:href="#arrow-left"></use>
+                            </svg>
+                        </button>
+                        <button class="hero__nav-btn hero__nav-btn--next" aria-label="Следующий слайд">
+                            <svg class="icon icon--arrow-right" aria-hidden="true">
+                                <use xlink:href="#arrow-right"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <!--—SECTION HERO END-->
+    </main>
+
+
+
+    <script src="./libs/plugins/swiper-bundle.min.js"></script>
+    <script src="./libs/plugins/jquery.min.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,51 @@
+@use "../helpers"as *;
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    min-width: rem(116);
+    padding: rem(16) rem(32);
+    font-size: rem(18);
+    color: var(--white);
+    white-space: nowrap;
+    background-color: var(--color-secondary);
+    border-radius: rem(18);
+
+    font-weight: 500;
+    font-size: 16px;
+
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+
+
+
+    @include hover {
+        background-color: var(--blue_hover);
+    }
+
+    &:active {
+        background: var(--blue_press);
+    }
+
+}
+
+.btn-text {
+
+    font-weight: 600;
+    font-size: 16px;
+
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    text-decoration: underline !important;
+    text-align: center;
+    color: var(--blue_black);
+
+    &:hover {
+
+        color: var(--blue_hover);
+    }
+
+    &:active {
+        color: var(--blue_press);
+    }
+}

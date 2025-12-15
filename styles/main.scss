@@ -5,7 +5,8 @@
 @use 'globals';
 
 
-// @use 'blocks/icon';
-// @use 'blocks/logo';
-// @use 'blocks/header';
-// @use 'blocks/mobile-menu';
+
+@use 'blocks/icon';
+@use 'blocks/button';
+@use 'blocks/header';
+@use 'blocks/hero';

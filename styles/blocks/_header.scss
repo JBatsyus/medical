@@ -1,0 +1,66 @@
+@use "../helpers"as *;
+
+/*---------HEADER (START)--------*/
+.header {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.01em;
+
+
+
+    &__top {
+        padding-block: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__contacts {
+        display: flex;
+        gap: 64px;
+    }
+
+    &__actions {
+        display: flex;
+        column-gap: 24px;
+    }
+
+    &__bottom {
+        display: grid;
+        grid-template-columns: 213px 1fr 205px;
+        column-gap: 2.8vw;
+        align-items: flex-end;
+    }
+
+    &__menu {
+        border: 1px solid var(--gray_light);
+        background: var(--gray_white);
+        border-radius: 16px;
+        padding: 16px 40px;
+    }
+
+    &__menu-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__menu-item:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    &__menu-link {
+        white-space: nowrap;
+        text-shadow: none;
+        transition: text-shadow 0.2s;
+
+        &:hover {
+            text-shadow: 0 0 0.65px var(--blue_black), 0 0 0.65px var(--blue_black);
+        }
+    }
+}
+
+/*---------HEADER (END)--------*/
