@@ -63,8 +63,8 @@
     <!--— HEADER END -->
     <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="main" aria-label="Содержимое страницы">
-        <!--— SECTION HERO START-->
-        <section class="hero">
+        <!--— HERO START-->
+        <section class="hero section">
             <div class="container">
                 <div class="hero__content">
                     <div class="hero__text">
@@ -87,7 +87,6 @@
                     <div class="hero__swiper">
                         <div class="hero-slider hero-slider__swiper swiper">
                             <div class="swiper-wrapper">
-                                <!-- Слайд 1 -->
                                 <div class="swiper-slide">
                                     <div class="hero-slider__slide"
                                         style="background-image: url('./images/banners/1.webp')">
@@ -104,7 +103,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Слайд 2 -->
                                 <div class="swiper-slide">
                                     <div class="hero-slider__slide"
                                         style="background-image: url('./images/banners/2.webp')">
@@ -122,7 +120,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Слайд 3 -->
                                 <div class="swiper-slide">
                                     <div class="hero-slider__slide"
                                         style="background-image: url('./images/banners/3.webp')">
@@ -213,7 +210,271 @@
             </div>
 
         </section>
-        <!--—SECTION HERO END-->
+        <!--—HERO END-->
+        <!--— SPECIAL OFFERS START-->
+        <!-- Секция "Специальные предложения" -->
+        <section class="special-offers section" aria-labelledby="special-offers-title">
+            <div class="container">
+                <div class="special-offers__swiper swiper" aria-label="Слайдер специальных предложений">
+                    <div class="special-offers__head">
+                        <h2 class="special-offers__title h2">Специальные предложения</h2>
+                        <!-- Навигация -->
+                        <div class="special-offers__controls" aria-hidden="true">
+                            <button class="special-offers__nav special-offers__nav--prev" aria-label="Предыдущий слайд">
+                                <svg width="30" height="25" viewBox="0 0 30 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M30 12.5C30 11.8096 29.4404 11.25 28.75 11.25H1.25C0.559645 11.25 0 11.8096 0 12.5C0 13.1904 0.559645 13.75 1.25 13.75H28.75C29.4404 13.75 30 13.1904 30 12.5Z"
+                                        fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M13.3839 0.366117C12.8957 -0.122039 12.1043 -0.122039 11.6161 0.366117L0.366117 11.6161C-0.122037 12.1043 -0.122037 12.8957 0.366117 13.3839L11.6161 24.6339C12.1043 25.122 12.8957 25.122 13.3839 24.6339C13.872 24.1457 13.872 23.3543 13.3839 22.8661L3.01777 12.5L13.3839 2.13388C13.872 1.64573 13.872 0.854272 13.3839 0.366117Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                            <button class="special-offers__nav special-offers__nav--next" aria-label="Следующий слайд">
+                                <svg width="30" height="25" viewBox="0 0 30 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0 12.5C0 11.8096 0.559644 11.25 1.25 11.25H28.75C29.4404 11.25 30 11.8096 30 12.5C30 13.1904 29.4404 13.75 28.75 13.75H1.25C0.559644 13.75 0 13.1904 0 12.5Z"
+                                        fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.6161 0.366117C17.1043 -0.122039 17.8957 -0.122039 18.3839 0.366117L29.6339 11.6161C30.122 12.1043 30.122 12.8957 29.6339 13.3839L18.3839 24.6339C17.8957 25.122 17.1043 25.122 16.6161 24.6339C16.128 24.1457 16.128 23.3543 16.6161 22.8661L26.9822 12.5L16.6161 2.13388C16.128 1.64573 16.128 0.854272 16.6161 0.366117Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="swiper-wrapper">
+                        <!-- Слайд 1 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/hygienic.webp')">
+                                    <span class="special-offers__tag icon icon--star">Гигиена</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Реминерализация зубной эмали и фторирование
+                                    </h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Укрепление зубной эмали и снижение чувствительности зубов.</li>
+                                        <li>Длительность процедуры: 40–60 минут.</li>
+                                        <li>Доктор даст вам полезные рекомендации, выпишет лечение и назначит терапию.
+                                        </li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">2799 ₽</span>
+                                            <span class="special-offers__price-old">4599 ₽</span>
+                                            <span class="special-offers__price-discount">-16%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Слайд 2 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/veneers.webp')">
+                                    <span class="special-offers__tag icon icon--star">Протезирование</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Установка виниров и люминиров во сне за одну
+                                        процедуру</h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Длительность: 60–80 минут.</li>
+                                        <li>Тонкие керамические или композитные накладки на переднюю часть зубов для
+                                            коррекции цвета, формы.</li>
+                                        <li>Врач выпишет вам лечение и даст полезные рекомендации.</li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">1990 ₽</span>
+                                            <span class="special-offers__price-old">2799 ₽</span>
+                                            <span class="special-offers__price-discount">-21%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Слайд 3 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/crowns.webp')">
+                                    <span class="special-offers__tag icon icon--star">Ортопедия</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Установка коронок и мостов, съемное
+                                        протезирование</h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Изготовление съемных протезов, полных или частичных.</li>
+                                        <li>Несъемные протезы, которые восстанавливают форму, функцию и внешний вид
+                                            разрушенного зуба.</li>
+                                        <li>Длительность индивидуальна.</li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">4290 ₽</span>
+                                            <span class="special-offers__price-old">5990 ₽</span>
+                                            <span class="special-offers__price-discount">-38%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Слайд 4 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/aligners.webp')">
+                                    <span class="special-offers__tag icon icon--star">Протезирование</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Лечение элайнерами (каппами), установка
+                                        брекет-систем</h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Результат через 2–3 процедуры.</li>
+                                        <li>Применение прозрачных съемных капп для постепенного перемещения зубов.</li>
+                                        <li>Использование несъемных конструкций для коррекции положения зубов и прикуса.
+                                        </li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">6200 ₽</span>
+                                            <span class="special-offers__price-old">9990 ₽</span>
+                                            <span class="special-offers__price-discount">-45%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Слайд 1 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/hygienic.webp')">
+                                    <span class="special-offers__tag icon icon--star">Гигиена</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Реминерализация зубной эмали и фторирование
+                                    </h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Укрепление зубной эмали и снижение чувствительности зубов.</li>
+                                        <li>Длительность процедуры: 40–60 минут.</li>
+                                        <li>Доктор даст вам полезные рекомендации, выпишет лечение и назначит терапию.
+                                        </li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">2799 ₽</span>
+                                            <span class="special-offers__price-old">4599 ₽</span>
+                                            <span class="special-offers__price-discount">-16%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Слайд 2 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/veneers.webp')">
+                                    <span class="special-offers__tag icon icon--star">Протезирование</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Установка виниров и люминиров во сне за одну
+                                        процедуру</h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Длительность: 60–80 минут.</li>
+                                        <li>Тонкие керамические или композитные накладки на переднюю часть зубов для
+                                            коррекции цвета, формы.</li>
+                                        <li>Врач выпишет вам лечение и даст полезные рекомендации.</li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">1990 ₽</span>
+                                            <span class="special-offers__price-old">2799 ₽</span>
+                                            <span class="special-offers__price-discount">-21%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Слайд 3 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/crowns.webp')">
+                                    <span class="special-offers__tag icon icon--star">Ортопедия</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Установка коронок и мостов, съемное
+                                        протезирование</h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Изготовление съемных протезов, полных или частичных.</li>
+                                        <li>Несъемные протезы, которые восстанавливают форму, функцию и внешний вид
+                                            разрушенного зуба.</li>
+                                        <li>Длительность индивидуальна.</li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">4290 ₽</span>
+                                            <span class="special-offers__price-old">5990 ₽</span>
+                                            <span class="special-offers__price-discount">-38%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Слайд 4 -->
+                        <div class="swiper-slide">
+                            <article class="special-offers__card">
+                                <div class="special-offers__image"
+                                    style="background-image: url('./images/offers/aligners.webp')">
+                                    <span class="special-offers__tag icon icon--star">Протезирование</span>
+                                </div>
+                                <div class="special-offers__content">
+                                    <h3 class="special-offers__subtitle">Лечение элайнерами (каппами), установка
+                                        брекет-систем</h3>
+                                    <ul class="special-offers__benefits">
+                                        <li>Результат через 2–3 процедуры.</li>
+                                        <li>Применение прозрачных съемных капп для постепенного перемещения зубов.</li>
+                                        <li>Использование несъемных конструкций для коррекции положения зубов и прикуса.
+                                        </li>
+                                    </ul>
+                                    <div class="special-offers__bottom">
+                                        <div class="special-offers__price">
+                                            <span class="special-offers__price-current">6200 ₽</span>
+                                            <span class="special-offers__price-old">9990 ₽</span>
+                                            <span class="special-offers__price-discount">-45%</span>
+                                        </div>
+                                        <a href="#" class="special-offers__button button">Записаться</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!--—SPECIAL OFFERS END-->
     </main>
 
 

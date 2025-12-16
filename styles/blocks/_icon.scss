@@ -36,4 +36,10 @@
             background-image: url('../../icons/heart.svg');
         }
     }
+     &--star {
+        &::before {
+            --size: 16px;
+            background-image: url('../../icons/star.svg');
+        }
+    }
 }

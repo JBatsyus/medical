@@ -1,0 +1,179 @@
+@use "../helpers"as *;
+/*---------- SPECIAL OFFERS (START)---------------------*/
+
+.special-offers {
+    &__head {
+        margin-bottom: 40px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__swiper {
+        position: relative;
+        width: 100%;
+        height: auto;
+
+        .swiper-wrapper {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .swiper-slide {
+            height: auto;
+            display: flex;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: var(--white);
+        border: var(--border-gray_light);
+        border-radius: 32px;
+        overflow: hidden;
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        border-radius: 0 0 32px 32px;
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+    }
+
+    &__tag {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background-color: var(--white);
+        border: var(--border-gray_light);
+        border-radius: 8px;
+        padding: 6px 12px;
+
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        text-align: center;
+    }
+
+    &__content {
+        padding: 20px 24px 24px 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__subtitle {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.01em;
+        color: var(--color-secondary);
+        margin-bottom: 20px;
+    }
+
+    &__benefits {
+        list-style: none;
+        margin: 0 0 24px 0;
+        padding: 0;
+
+        li {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+
+            &::before {
+                content: "○";
+                position: absolute;
+                left: 0;
+                color: var(--color-secondary);
+            }
+        }
+    }
+
+    &__bottom {
+        display: grid;
+        row-gap: 24px;
+        margin-top: auto;
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    &__price-current {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.1;
+        color: var(--blue_black);
+        text-transform: uppercase;
+    }
+
+    &__price-old {
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: 0.01em;
+        color: var(--gray);
+        text-decoration: line-through;
+    }
+
+    &__price-discount {
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: 0.01em;
+        color: var(--blue_black);
+        border: 1px solid var(--blue_dark);
+        border-radius: 8px;
+        padding: 2px 6px;
+    }
+
+    // Навигация
+    &__controls {
+        position: absolute;
+        top: 50%;
+
+        right: 0;
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 24px;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    &__nav {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        background: var(--white);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+
+        svg {
+            display: block;
+            color: var(--gray_blue_dark);
+            transition: color 0.2s ease;
+        }
+
+        &:hover svg,
+        &:focus-visible svg {
+            color: var(--blue_hover);
+        }
+    }
+}
+
+/*---------- SPECIAL OFFERS (END)---------------------*/

@@ -2,12 +2,13 @@
 
 /*---------HEADER (START)--------*/
 .header {
-    position: sticky;
-    z-index: 100;
-    top: 0;
+    // position: sticky;
+    // z-index: 100;
+    // top: 0;
     font-size: 16px;
     line-height: 1;
     letter-spacing: 0.01em;
+    background-color: var(--white);
 
 
 
@@ -36,7 +37,7 @@
     }
 
     &__menu {
-        border: 1px solid var(--gray_light);
+        border: var(--border-gray_light);
         background: var(--gray_white);
         border-radius: 16px;
         padding: 16px 40px;

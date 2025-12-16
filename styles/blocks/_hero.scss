@@ -95,7 +95,7 @@
         left: 24px;
         right: 24px;
         bottom: 24px;
-        background: #fff;
+        background: var(--white);
         border-radius: 24px;
         padding: 20px 24px;
 
@@ -193,9 +193,7 @@
 // =====================
 
 .hero {
-    &__features {}
-
-    &__features-list {
+   &__features-list {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 20px;
@@ -206,7 +204,7 @@
         display: flex;
 
         background-color: var(--gray_blue);
-        border: 1px solid var(--gray_light);
+        border: var(--border-gray_light);
         border-radius: 24px;
         overflow: hidden;
         min-height: 136px;
