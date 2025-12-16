@@ -29,8 +29,6 @@
         width: 100%;
         height: auto;
 
-
-
         .swiper-wrapper {
             display: flex;
             align-items: stretch;
@@ -39,12 +37,7 @@
         .swiper-slide {
             height: auto;
             display: flex;
-
         }
-
-
-
-
     }
 
     &__card {
@@ -59,7 +52,6 @@
         @include tablet {
             border-radius: 24px;
         }
-
     }
 
     &__image-block {
@@ -79,7 +71,6 @@
         }
     }
 
-
     &__image {
         position: absolute;
         inset: 0;
@@ -87,7 +78,6 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
-
     }
 
     &__tag {
@@ -235,12 +225,7 @@
         &:focus-visible svg {
             color: var(--blue_hover);
         }
-
-        @include tablet {
-            display: none;
-        }
     }
-
 
     // Пагинация
     &__pagination {
@@ -262,10 +247,7 @@
         .swiper-pagination-bullet.swiper-pagination-bullet-active {
             background-color: var(--color-primary);
         }
-
-
     }
-
 }
 
 /*---------- SPECIAL OFFERS (END)---------------------*/

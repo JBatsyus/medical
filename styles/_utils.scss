@@ -45,6 +45,15 @@ html.no-scroll {
     }
 }
 
+// Показывать ТОЛЬКО на адаптивах
+.visible-tablet-only {
+    display: none !important;
+
+    @include tablet {
+        display: block !important;
+    }
+}
+
 // скрыть элемент на ноуте
 .visible-laptop-s {
     @include laptop-s {
