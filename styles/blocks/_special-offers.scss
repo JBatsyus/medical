@@ -2,17 +2,34 @@
 /*---------- SPECIAL OFFERS (START)---------------------*/
 
 .special-offers {
+    .swiper {
+        @include tablet {
+            overflow: visible;
+            padding-bottom: 40px;
+        }
+    }
+
     &__head {
         margin-bottom: 40px;
         position: relative;
         display: flex;
         justify-content: space-between;
+
+        @include tablet {
+            margin-bottom: 32px;
+        }
+
+        @include mobile {
+            margin-bottom: 24px;
+        }
     }
 
     &__swiper {
         position: relative;
         width: 100%;
         height: auto;
+
+
 
         .swiper-wrapper {
             display: flex;
@@ -22,7 +39,12 @@
         .swiper-slide {
             height: auto;
             display: flex;
+
         }
+
+
+
+
     }
 
     &__card {
@@ -33,16 +55,39 @@
         border: var(--border-gray_light);
         border-radius: 32px;
         overflow: hidden;
+
+        @include tablet {
+            border-radius: 24px;
+        }
+
     }
 
-    &__image {
+    &__image-block {
         position: relative;
         width: 100%;
         border-radius: 0 0 32px 32px;
         height: 220px;
-        background-size: cover;
-        background-position: center;
         overflow: hidden;
+
+        @include tablet {
+            border-radius: 0 0 24px 24px;
+            height: 160px;
+        }
+
+        @include mobile {
+            height: 220px;
+        }
+    }
+
+
+    &__image {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+
     }
 
     &__tag {
@@ -59,6 +104,14 @@
         line-height: 1.1;
         letter-spacing: 0.01em;
         text-align: center;
+        z-index: 10;
+
+        @include tablet {
+            top: 20px;
+            left: 20px;
+            border-radius: 16px;
+            padding: 8px 12px;
+        }
     }
 
     &__content {
@@ -67,6 +120,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @include tablet {
+            padding: 16px 16px 20px 16px;
+        }
     }
 
     &__subtitle {
@@ -76,6 +133,11 @@
         letter-spacing: 0.01em;
         color: var(--color-secondary);
         margin-bottom: 20px;
+
+        @include tablet {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
     }
 
     &__benefits {
@@ -173,7 +235,37 @@
         &:focus-visible svg {
             color: var(--blue_hover);
         }
+
+        @include tablet {
+            display: none;
+        }
     }
+
+
+    // Пагинация
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+        padding: 0 20px;
+
+        .swiper-pagination-bullet {
+            border-radius: 4px;
+            width: 24px;
+            height: 4px;
+            background-color: var(--blue_gray);
+            transition: background-color 0.2s;
+        }
+
+        .swiper-pagination-bullet.swiper-pagination-bullet-active {
+            background-color: var(--color-primary);
+        }
+
+
+    }
+
 }
 
 /*---------- SPECIAL OFFERS (END)---------------------*/

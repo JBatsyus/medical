@@ -29,11 +29,11 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
     // Адаптивность
     breakpoints: {
         576: {
-            slidesPerView: 2,
+            slidesPerView: 1.5,
             spaceBetween: 20,
         },
         768: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 24,
         },
         992: {
@@ -45,6 +45,13 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
     navigation: {
         prevEl: '.special-offers__nav--prev',
         nextEl: '.special-offers__nav--next',
+    },
+    pagination: {
+        el: '.special-offers__pagination',
+        clickable: true,
+        type: 'bullets',
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
     },
 
 });

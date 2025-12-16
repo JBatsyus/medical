@@ -1,7 +1,12 @@
 @use "helpers"as *;
+
 // *{
 //     outline: 4px solid red !important;
 // }
+body,
+html {
+    overflow-x: hidden !important;
+}
 
 html {
     scroll-behavior: initial;
@@ -46,14 +51,16 @@ h2,
     line-height: 1.2;
 
     @include tablet {
-        font-weight: 600;
-        font-size: 24px;
+
+        font-size: 32px;
         line-height: 1.1;
     }
 
     @include mobile {
+        font-size: 20px;
         line-height: 1.2;
     }
+
 }
 
 
