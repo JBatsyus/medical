@@ -1,4 +1,7 @@
 @use "helpers"as *;
+// *{
+//     outline: 4px solid red !important;
+// }
 
 html {
     scroll-behavior: initial;
@@ -11,6 +14,7 @@ body {
     font-family: var(--font-family-base);
     color: var(--color-primary);
     background-color: var(--white);
+    font-weight: 400;
 
     @include mobile {
         font-size: 16px;
@@ -36,7 +40,8 @@ h1,
 .h1,
 h2,
 .h2 {
-    @include fluid-text(48, 24);
+    font-size: rem(48);
+    // @include fluid-text(48, 24);
     font-weight: 500;
     line-height: 1.2;
 

@@ -1,1 +1,239 @@
 @use "../helpers"as *;
+/*---------- HERO (START)---------------------*/
+
+.hero {
+    padding-top: 48px;
+
+    &__content {
+        display: flex;
+        gap: 20px;
+        align-content: stretch;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        width: 50%;
+        padding: 56px 48px;
+        background-color: var(--gray_white);
+        border-radius: 40px;
+        overflow: hidden;
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        padding: 12px;
+        font-weight: 500;
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        margin-bottom: 50px;
+    }
+
+    &__title-highlight {
+        color: var(--blue_dark);
+    }
+
+    &__description {
+        margin-bottom: 40px;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__note {
+        font-size: 14px;
+
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        color: var(--gray_blue_dark);
+    }
+
+    &__swiper {
+        width: 50%;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+// =====================
+// HERO SLIDER — БЛОК
+// =====================
+
+.hero-slider {
+    &__swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-wrapper {
+        height: 100%;
+    }
+
+    .swiper-slide {
+        height: 100%;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+
+    &__slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+    }
+
+    &__card {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 24px;
+        background: #fff;
+        border-radius: 24px;
+        padding: 20px 24px;
+
+        z-index: 2;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 1.2;
+        color: var(--blue_dark);
+        margin-bottom: 10px;
+    }
+
+    &__desc {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--blue_black);
+        margin-bottom: 20px;
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    &__price-current {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.1;
+        color: var(--blue_black);
+        text-transform: uppercase;
+    }
+
+    &__price-old {
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: 0.01em;
+        color: var(--gray);
+        text-decoration: line-through;
+    }
+
+    &__price-discount {
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: 0.01em;
+        color: var(--blue_black);
+        border: 1px solid var(--blue_dark);
+        border-radius: 8px;
+        padding: 2px 6px;
+    }
+
+    // Навигация
+    &__controls {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        right: 24px;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    &__nav {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--gray_blue);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+
+        svg {
+            display: block;
+            color: var(--gray_blue_dark);
+            transition: color 0.2s ease;
+        }
+
+        &:hover svg,
+        &:focus-visible svg {
+            color: var(--blue_hover);
+        }
+    }
+}
+
+/// =====================
+// HERO — Преимущества
+// =====================
+
+.hero {
+    &__features {}
+
+    &__features-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    &__features-item {
+        position: relative;
+        display: flex;
+
+        background-color: var(--gray_blue);
+        border: 1px solid var(--gray_light);
+        border-radius: 24px;
+        overflow: hidden;
+        min-height: 136px;
+    }
+
+    &__features-title {
+        position: relative;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        color: var(--blue_black);
+        padding: 24px;
+        z-index: 2;
+    }
+
+    &__features-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+
+        background-size: contain;
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+}
+
+/*---------- HERO (END)---------------------*/

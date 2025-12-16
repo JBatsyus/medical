@@ -29,4 +29,11 @@
             background-image: url('../../icons/location.svg');
         }
     }
+
+    &--heart {
+        &::before {
+            --size: 20px;
+            background-image: url('../../icons/heart.svg');
+        }
+    }
 }

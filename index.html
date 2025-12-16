@@ -64,11 +64,14 @@
     <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="main" aria-label="Содержимое страницы">
         <!--— SECTION HERO START-->
-        <!-- <section class="hero">
+        <section class="hero">
             <div class="container">
                 <div class="hero__content">
                     <div class="hero__text">
-                        <h1 class="hero__title">За красивой и здоровой улыбкой в клинику <span
+                        <span class="hero__subtitle icon icon--heart">
+                            Формула здоровья
+                        </span>
+                        <h1 class="hero__title h1">За красивой и здоровой улыбкой в клинику <span
                                 class="hero__title-highlight">Medland!</span></h1>
                         <p class="hero__description">
                             Медицинский центр Medland — это профессиональная помощь, современное оборудование и
@@ -76,37 +79,140 @@
                             Мы сделаем вашу улыбку здоровой и красивой.
                         </p>
                         <div class="hero__actions">
-                            <a href="#" class="btn btn--primary">Бесплатная консультация</a>
+                            <a href="#" class="button">Бесплатная консультация</a>
                             <span class="hero__note">*Перезвоним в течение 15 минут</span>
                         </div>
                     </div>
-                    <div class="hero__image">
-                        <img src="https://via.placeholder.com/600x400" alt="Стоматолог в маске проводит осмотр пациента"
-                            class="hero__img" loading="lazy" />
-                        <div class="hero__promo-card">
-                            <h3 class="hero__promo-title">Лечение заболеваний десен и полости рта</h3>
-                            <p class="hero__promo-desc">Терапия и лечение гингивита, пародонтита и других
-                                воспалительных процессов</p>
-                            <div class="hero__promo-price">
-                                <span class="hero__price-current">2799 ₽</span>
-                                <span class="hero__price-old">4599 ₽</span>
-                                <span class="hero__price-discount">-16%</span>
+                    <!-- Слайдер -->
+                    <div class="hero__swiper">
+                        <div class="hero-slider hero-slider__swiper swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Слайд 1 -->
+                                <div class="swiper-slide">
+                                    <div class="hero-slider__slide"
+                                        style="background-image: url('./images/banners/1.webp')">
+                                        <div class="hero-slider__card">
+                                            <h3 class="hero-slider__title">Лечение заболеваний десен и полости рта</h3>
+                                            <p class="hero-slider__desc">Терапия и лечение гингивита, пародонтита и
+                                                других
+                                                воспалительных процессов</p>
+                                            <div class="hero-slider__price">
+                                                <span class="hero-slider__price-current">2799 ₽</span>
+                                                <span class="hero-slider__price-old">4599 ₽</span>
+                                                <span class="hero-slider__price-discount">-14%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Слайд 2 -->
+                                <div class="swiper-slide">
+                                    <div class="hero-slider__slide"
+                                        style="background-image: url('./images/banners/2.webp')">
+                                        <div class="hero-slider__card">
+                                            <h3 class="hero-slider__title">Имплантация зубов</h3>
+                                            <p class="hero-slider__desc">Безболезненная установка имплантов с гарантией
+                                                на
+                                                10 лет
+                                            </p>
+                                            <div class="hero-slider__price">
+                                                <span class="hero-slider__price-current">18999 ₽</span>
+                                                <span class="hero-slider__price-old">24999 ₽</span>
+                                                <span class="hero-slider__price-discount">-24%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Слайд 3 -->
+                                <div class="swiper-slide">
+                                    <div class="hero-slider__slide"
+                                        style="background-image: url('./images/banners/3.webp')">
+                                        <div class="hero-slider__card">
+                                            <h3 class="hero-slider__title">Отбеливание зубов</h3>
+                                            <p class="hero-slider__desc">Профессиональное отбеливание за 1 сеанс без
+                                                боли
+                                            </p>
+                                            <div class="hero-slider__price">
+                                                <span class="hero-slider__price-current">5999 ₽</span>
+                                                <span class="hero-slider__price-old">7999 ₽</span>
+                                                <span class="hero-slider__price-discount">-25%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
+                            <!-- Навигация -->
+                            <div class="hero-slider__controls" aria-hidden="false">
+                                <button class="hero-slider__nav slider__nav--prev" data-slide="prev"
+                                    aria-label="Предыдущий слайд">
+                                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M22 9.45313C22 8.93104 21.5896 8.50781 21.0833 8.50781L0.916666 8.50781C0.410406 8.50781 0 8.93104 0 9.45313C0 9.97521 0.410406 10.3984 0.916666 10.3984L21.0833 10.3984C21.5896 10.3984 22 9.97521 22 9.45313Z"
+                                            fill="currentColor" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M9.8155 0.276876C9.45752 -0.0922919 8.87712 -0.0922919 8.51914 0.276876L0.269135 8.78469C-0.0888453 9.15386 -0.0888453 9.75239 0.269135 10.1216L8.51914 18.6294C8.87712 18.9985 9.45752 18.9985 9.8155 18.6294C10.1735 18.2602 10.1735 17.6617 9.8155 17.2925L2.21368 9.45313L9.8155 1.61375C10.1735 1.24458 10.1735 0.646043 9.8155 0.276876Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="hero-slider__nav slider__nav--next" data-slide="next"
+                                    aria-label="Следующий слайд">
+                                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M1.57019e-06 9.45313C1.61584e-06 9.97521 0.410407 10.3984 0.916668 10.3984L21.0833 10.3984C21.5896 10.3984 22 9.97521 22 9.45313C22 8.93104 21.5896 8.50781 21.0833 8.50781L0.916668 8.50782C0.410407 8.50782 1.52455e-06 8.93105 1.57019e-06 9.45313Z"
+                                            fill="currentColor" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.1845 18.6294C12.5425 18.9985 13.1229 18.9985 13.4809 18.6294L21.7309 10.1216C22.0888 9.7524 22.0888 9.15386 21.7309 8.78469L13.4809 0.276878C13.1229 -0.0922891 12.5425 -0.092289 12.1845 0.276878C11.8265 0.646046 11.8265 1.24459 12.1845 1.61375L19.7863 9.45313L12.1845 17.2925C11.8265 17.6617 11.8265 18.2602 12.1845 18.6294Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </button>
+                            </div>
+
+
                         </div>
-                        <button class="hero__nav-btn hero__nav-btn--prev" aria-label="Предыдущий слайд">
-                            <svg class="icon icon--arrow-left" aria-hidden="true">
-                                <use xlink:href="#arrow-left"></use>
-                            </svg>
-                        </button>
-                        <button class="hero__nav-btn hero__nav-btn--next" aria-label="Следующий слайд">
-                            <svg class="icon icon--arrow-right" aria-hidden="true">
-                                <use xlink:href="#arrow-right"></use>
-                            </svg>
-                        </button>
                     </div>
                 </div>
+
+                <div class="hero__features">
+                    <div class="hero__features-list">
+                        <!-- Преимущество 1 -->
+                        <div class="hero__features-item">
+                            <div class="hero__features-title">Качественная <br> импортная техника</div>
+                            <div class="hero__features-image"
+                                style="background-image: url('./images/features/dentalchair.png')"></div>
+
+                        </div>
+
+                        <!-- Преимущество 2 -->
+                        <div class="hero__features-item">
+                            <div class="hero__features-title">Быстрая<br> диагностика</div>
+                            <div class="hero__features-image"
+                                style="background-image: url('./images/features/diagnostika.png')"></div>
+
+                        </div>
+
+                        <!-- Преимущество 3 -->
+                        <div class="hero__features-item">
+                            <div class="hero__features-title">Официальные<br> документы</div>
+                            <div class="hero__features-image"
+                                style="background-image: url('./images/features/documenty.png')"></div>
+
+                        </div>
+
+                        <!-- Преимущество 4 -->
+                        <div class="hero__features-item">
+                            <div class="hero__features-title">Доктора с опытом<br> работы</div>
+                            <div class="hero__features-image"
+                                style="background-image: url('./images/features/doc.png')"></div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </section> -->
+
+        </section>
         <!--—SECTION HERO END-->
     </main>
 
