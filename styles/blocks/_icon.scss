@@ -43,4 +43,10 @@
             background-image: url('../../icons/star.svg');
         }
     }
+    &--doc-star{
+         &::before {
+            --size: 16px;
+            background-image: url('../../icons/doc-star.svg');
+        }
+    }
 }

@@ -34,9 +34,13 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
         },
         768: {
             slidesPerView: 2,
-            spaceBetween: 24,
+            spaceBetween: 20,
         },
         992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        1200: {
             slidesPerView: 4,
             spaceBetween: 20,
         },
@@ -54,4 +58,40 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
         bulletActiveClass: 'swiper-pagination-bullet-active',
     },
 
+});
+
+const doctorsSwiper = new Swiper('.doctors__swiper', {
+    loop: true,
+    speed: 600,
+    slidesPerView: 1,
+    spaceBetween: 20,
+
+    breakpoints: {
+        576: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+
+    navigation: {
+        prevEl: '.doctors__nav--prev',
+        nextEl: '.doctors__nav--next',
+    },
+
+    pagination: {
+        el: '.doctors__pagination',
+        clickable: true,
+    },
 });
