@@ -13,6 +13,10 @@
         @include tablet {
             flex-direction: column;
         }
+
+        @include mobile {
+            gap: 24px;
+        }
     }
 
     &__text {
@@ -26,6 +30,10 @@
             width: 100%;
             padding: 32px;
         }
+
+        @include mobile {
+            padding: 24px 16px;
+        }
     }
 
     &__subtitle {
@@ -33,17 +41,29 @@
         padding: 12px;
         font-weight: 500;
         margin-bottom: 24px;
+        background-color: var(--white);
+        border-radius: 18px;
 
         @include tablet {
             margin-bottom: 20px;
         }
+
+        @include mobile {
+            padding: 8px 12px;
+            margin-bottom: 12px;
+        }
     }
 
     &__title {
-        margin-bottom: 50px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--gray_1);
 
         @include tablet {
-            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        @include mobile {
+            padding-bottom: 16px;
         }
     }
 
@@ -52,18 +72,35 @@
     }
 
     &__description {
+        padding-top: 27px;
         margin-bottom: 40px;
+
+        @include tablet {
+            font-size: 18px;
+            padding-top: 20px;
+        }
+
+        @include mobile {
+            font-size: 16px;
+            padding-top: 16px;
+            margin-bottom: 20px;
+        }
     }
 
     &__actions {
         display: flex;
         align-items: center;
         gap: 20px;
+
+        @include mobile {
+            .button {
+                width: 100%;
+            }
+        }
     }
 
     &__note {
         font-size: 14px;
-
         line-height: 1.1;
         letter-spacing: 0.01em;
         color: var(--gray_blue_dark);
@@ -76,10 +113,7 @@
 
         @include tablet {
             width: 100%;
-
-
         }
-
     }
 }
 
@@ -89,9 +123,11 @@
 
 .hero-slider {
     @include tablet {
-
         aspect-ratio: 16 / 8.7;
+    }
 
+    @include mobile {
+        aspect-ratio: 1;
     }
 
     &__swiper {
@@ -136,6 +172,13 @@
             padding: 16px 24px;
             bottom: 44px;
         }
+
+        @include mobile {
+            left: 16px;
+            right: 16px;
+            padding: 20px 24px;
+            bottom: 36px;
+        }
     }
 
     &__title {
@@ -148,6 +191,11 @@
         @include tablet {
             font-size: 24px;
         }
+
+        @include mobile {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
     }
 
     &__desc {
@@ -156,9 +204,7 @@
         line-height: 1.6;
         color: var(--blue_black);
         margin-bottom: 20px;
-
     }
-
 
     &__price {
         display: flex;
@@ -176,6 +222,10 @@
 
         @include tablet {
             font-size: 28px;
+        }
+
+        @include mobile {
+            font-size: 24px;
         }
     }
 
@@ -264,11 +314,21 @@
 .hero {
     &__features-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        // grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 20px;
+
+        @include laptop-s {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         @include tablet {
             gap: 16px;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 12px;
         }
     }
 
@@ -285,6 +345,10 @@
         @include tablet {
             min-height: 92px;
         }
+
+        @include mobile {
+            min-height: 86px;
+        }
     }
 
     &__features-title {
@@ -298,6 +362,10 @@
 
         @include tablet {
             font-size: 18px;
+        }
+
+        @include mobile {
+            font-size: 16px;
         }
     }
 
