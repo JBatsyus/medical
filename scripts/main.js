@@ -5,11 +5,11 @@ const heroSwiper = new Swiper('.hero-slider__swiper', {
         crossFade: true
     },
     speed: 1000,
-    // autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: false,
-    //     pauseOnMouseEnter: true
-    // },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+    },
     navigation: {
         prevEl: '.slider__nav--prev',
         nextEl: '.slider__nav--next',
