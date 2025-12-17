@@ -49,6 +49,10 @@
         border-radius: 32px;
         overflow: hidden;
         padding: 24px;
+
+        @include tablet {
+            padding: 16px 16px 24px;
+        }
     }
 
     &__image-block {
@@ -61,6 +65,12 @@
         overflow: hidden;
         background-color: var(--white);
         margin-bottom: 20px;
+
+        @include tablet {
+            height: 240px;
+            border-radius: 24px;
+            margin-bottom: 16px;
+        }
 
         .doctors__image {
             width: auto;
@@ -101,6 +111,10 @@
         font-weight: 700;
         font-size: 24px;
         margin-bottom: 20px;
+
+        @include tablet {
+            font-size: 20px;
+        }
     }
 
     &__info {
@@ -113,6 +127,10 @@
         line-height: 1;
         color: var(--gray_blue_dark);
         margin-bottom: 50px;
+
+        @include tablet {
+            margin-bottom: 24px;
+        }
 
         .highlight {
             font-weight: 700;
