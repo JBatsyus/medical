@@ -34,8 +34,9 @@
         grid-template-columns: 213px 1fr 205px;
         column-gap: 2.8vw;
         align-items: flex-end;
-           @include tablet {
-           display: none;
+
+        @include tablet {
+            display: none;
         }
     }
 
