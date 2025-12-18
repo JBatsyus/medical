@@ -60,13 +60,13 @@
                 background: url(../../images/cta/dnk-m.png) no-repeat top right;
             }
         }
+    }
 
-        .banner-cta__title,
-        .banner-cta__desc,
-        .banner-cta__actions {
-            position: relative;
-            z-index: 1;
-        }
+    &__title,
+    &-cta__desc,
+    &__actions {
+        position: relative;
+        z-index: 1;
     }
 
     &__title {
