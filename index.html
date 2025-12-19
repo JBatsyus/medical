@@ -217,117 +217,149 @@
 
         <section class="services section" aria-labelledby="services-title">
             <div class="container">
-                <div class="services__head">
-                    <h2 id="services-title" class="services__title h2">Услуги</h2>
-                    < </div> <nav class="services__nav" role="tablist" aria-label="Навигация по услугам">
-                        <button class="nav-btn active button button--accent _js-tabs-title " role="tab"
-                            aria-selected="true" aria-controls="panel-1" id="tab-1" data-tab="tab-0">
+                <div class="services__swiper swiper">
+                    <div class="services__head">
+                        <h2 id="services-title" class="services__title h2">Услуги</h2>
+                        <div class="services__controls visible-tablet">
+                            <button class="services__nav services__nav--prev" aria-label="Предыдущий слайд">
+                                <svg width="30" height="25" viewBox="0 0 30 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M30 12.5C30 11.8096 29.4404 11.25 28.75 11.25H1.25C0.559645 11.25 0 11.8096 0 12.5C0 13.1904 0.559645 13.75 1.25 13.75H28.75C29.4404 13.75 30 13.1904 30 12.5Z"
+                                        fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M13.3839 0.366117C12.8957 -0.122039 12.1043 -0.122039 11.6161 0.366117L0.366117 11.6161C-0.122037 12.1043 -0.122037 12.8957 0.366117 13.3839L11.6161 24.6339C12.1043 25.122 12.8957 25.122 13.3839 24.6339C13.872 24.1457 13.872 23.3543 13.3839 22.8661L3.01777 12.5L13.3839 2.13388C13.872 1.64573 13.872 0.854272 13.3839 0.366117Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                            <button class="services__nav services__nav--next" aria-label="Следующий слайд">
+                                <svg width="30" height="25" viewBox="0 0 30 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0 12.5C0 11.8096 0.559644 11.25 1.25 11.25H28.75C29.4404 11.25 30 11.8096 30 12.5C30 13.1904 29.4404 13.75 28.75 13.75H1.25C0.559644 13.75 0 13.1904 0 12.5Z"
+                                        fill="currentColor" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.6161 0.366117C17.1043 -0.122039 17.8957 -0.122039 18.3839 0.366117L29.6339 11.6161C30.122 12.1043 30.122 12.8957 29.6339 13.3839L18.3839 24.6339C17.8957 25.122 17.1043 25.122 16.6161 24.6339C16.128 24.1457 16.128 23.3543 16.6161 22.8661L26.9822 12.5L16.6161 2.13388C16.128 1.64573 16.128 0.854272 16.6161 0.366117Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Фильтры -->
+                    <nav class="services__filters" role="tablist" aria-label="Фильтры услуг">
+                        <button class="filter-btn active button button--accent" data-filter="all" aria-selected="true">
                             Все
                         </button>
-                        <button class="nav-btn button button--accent _js-tabs-title " role="tab" aria-selected="false"
-                            aria-controls="panel-2" id="tab-2" data-tab="tab-1">
+                        <button class="filter-btn button button--accent" data-filter="orthodontics"
+                            aria-selected="false">
                             Ортодонтия
                         </button>
-                        <button class="nav-btn button button--accent _js-tabs-title " role="tab" aria-selected="false"
-                            aria-controls="panel-3" id="tab-3" data-tab="tab-2">
+                        <button class="filter-btn button button--accent" data-filter="hygiene" aria-selected="false">
                             Гигиена
                         </button>
-                        <button class="nav-btn button button--accent _js-tabs-title " role="tab" aria-selected="false"
-                            aria-controls="panel-4" id="tab-4" data-tab="tab-3">
+                        <button class="filter-btn button button--accent" data-filter="aesthetics" aria-selected="false">
                             Эстетика
                         </button>
-                        <button class="nav-btn button button--accent _js-tabs-title " role="tab" aria-selected="false"
-                            aria-controls="panel-5" id="tab-5" data-tab="tab-4">
+                        <button class="filter-btn button button--accent" data-filter="surgery" aria-selected="false">
                             Хирургия
                         </button>
-                        <button class="nav-btn button button--accent _js-tabs-title " role="tab" aria-selected="false"
-                            aria-controls="panel-6" id="tab-6" data-tab="tab-5">
+                        <button class="filter-btn button button--accent" data-filter="therapy" aria-selected="false">
                             Терапия
                         </button>
-                        </nav>
-
-                        <!-- Swiper -->
-                        <div class="swiper-container _js-tabs-info" id="panel-1" role="tabpanel" aria-labelledby="tab-1"
-                            tabindex="-1" data-tab="tab-0">
-                            <div class="services__swiper swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <article class="services__card background background--image-1">
-                                            <div class="services__content">
-                                                <h3 class="services__subtitle">Лечение кариеса</h3>
-                                                <p class="services__desc">Восстановления формы и функции зуба.</p>
-                                                <span class="services__price">от 2799 ₽</span>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="services__card background background--image-2">
-                                            <div class="services__content">
-                                                <h3 class="services__subtitle">Реставрация зубов</h3>
-                                                <p class="services__desc">Восстановление анатомии и эстетики зуба</p>
-                                                <span class="services__price">от 1990 ₽</span>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="services__card background background--image-3">
-                                            <div class="services__content">
-                                                <h3 class="services__subtitle">Имплантация зубов</h3>
-                                                <p class="services__desc">Современный метод восстановления зубов</p>
-                                                <span class="services__price">от 11 999 ₽</span>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <article class="services__card background background--image-3">
-                                            <div class="services__content">
-                                                <h3 class="services__subtitle">Имплантация зубов</h3>
-                                                <p class="services__desc">Современный метод восстановления зубов</p>
-                                                <span class="services__price">от 11 999 ₽</span>
-                                            </div>
-                                        </article>
-                                    </div>
+                    </nav>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide service-item" data-category="all orthodontics">
+                            <article class="services__card background background--image-1">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Лечение кариеса</h3>
+                                    <p class="services__desc">Восстановления формы и функции зуба.</p>
+                                    <span class="services__price">от 2799 ₽</span>
                                 </div>
-                                <!-- Пагинация для первого таба -->
-                                <div class="swiper-pagination swiper-pagination-1"></div>
-                            </div>
+                            </article>
+                        </div>
+                        <div class="swiper-slide service-item" data-category="all aesthetics">
+                            <article class="services__card background background--image-2">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Реставрация зубов</h3>
+                                    <p class="services__desc">Восстановление анатомии и эстетики зуба</p>
+                                    <span class="services__price">от 1990 ₽</span>
+                                </div>
+                            </article>
                         </div>
 
-                        <!-- Второй таб -->
-                        <div class="swiper-container _js-tabs-info" id="panel-2" role="tabpanel" aria-labelledby="tab-2"
-                            tabindex="-1" data-tab="tab-1">
-                            <div class="services__swiper swiper">
-                                <div class="swiper-wrapper">
-                                    <!-- Слайд 1-->
-                                    <div class="swiper-slide">
-                                        <article class="services__card background background--image-1">
-                                            <div class="services__content">
-                                                <h3 class="services__subtitle">Реставрация зубов</h3>
-                                                <p class="services__desc">Восстановление анатомии и эстетики зуба.</p>
-                                                <span class="services__price">от 1990 ₽</span>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
 
-                                <div class="swiper-pagination swiper-pagination-2"></div>
-                            </div>
+                        <div class="swiper-slide service-item" data-category="all surgery">
+                            <article class="services__card background background--image-3">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Имплантация зубов</h3>
+                                    <p class="services__desc">Современный метод восстановления зубов</p>
+                                    <span class="services__price">от 11 999 ₽</span>
+                                </div>
+                            </article>
                         </div>
 
-                        <!-- Третий таб-->
-                        <div class="swiper-container _js-tabs-info" id="panel-3" role="tabpanel" aria-labelledby="tab-3"
-                            tabindex="-1" data-tab="tab-2">
-                            <div class="services__swiper swiper">
-                                <div class="swiper-wrapper">
-                                    <!-- Слайды -->
+
+                        <div class="swiper-slide service-item" data-category="all surgery">
+                            <article class="services__card background background--image-1">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Лечение пульпита</h3>
+                                    <p class="services__desc">Безболезненное лечение корневых каналов</p>
+                                    <span class="services__price">от 5 999 ₽</span>
                                 </div>
-                                <!-- Пагинация для третьего таба -->
-                                <div class="swiper-pagination swiper-pagination-3"></div>
-                            </div>
+                            </article>
                         </div>
+
+                        <div class="swiper-slide service-item" data-category="all therapy">
+                            <article class="services__card background background--image-1">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Лечение пульпита</h3>
+                                    <p class="services__desc">Безболезненное лечение корневых каналов</p>
+                                    <span class="services__price">от 5 999 ₽</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="swiper-slide service-item" data-category="all surgery">
+                            <article class="services__card background background--image-1">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Лечение пульпита</h3>
+                                    <p class="services__desc">Безболезненное лечение корневых каналов</p>
+                                    <span class="services__price">от 5 999 ₽</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="swiper-slide service-item" data-category="all hygiene">
+                            <article class="services__card background background--image-1">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Лечение пульпита</h3>
+                                    <p class="services__desc">Безболезненное лечение корневых каналов</p>
+                                    <span class="services__price">от 5 999 ₽</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="swiper-slide service-item" data-category="all  hygiene">
+                            <article class="services__card background background--image-2">
+                                <div class="services__content">
+                                    <h3 class="services__subtitle">Реставрация зубов</h3>
+                                    <p class="services__desc">Восстановление анатомии и эстетики зуба</p>
+                                    <span class="services__price">от 1990 ₽</span>
+                                </div>
+                            </article>
+                        </div>
+
+
+                    </div>
+                    <!-- Пагинация НАДО ДОРАБОТАТЬ НА АДАПТИВЕ-->
+                    <div class="services__pagination swiper-pagination visible-tablet-only "></div>
+
+                    <!-- Навигация -->
 
 
                 </div>
+            </div>
         </section>
         <!-- УСЛУГИ END -->
         <!--— SPECIAL OFFERS START-->
