@@ -114,10 +114,10 @@ document.addEventListener('DOMContentLoaded', function () {
             speed: 600,
             slidesPerView: 1,
             spaceBetween: 20,
-            pagination: {
-                el: '.services__pagination',
-                clickable: true,
-            },
+            // pagination: {
+            //     el: '.services__pagination',
+            //     clickable: true,
+            // },
             navigation: {
                 prevEl: '.services__nav--prev',
                 nextEl: '.services__nav--next',
