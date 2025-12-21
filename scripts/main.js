@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const serviceItems = document.querySelectorAll('.service-item');
     let currentSwiper = null;
 
-   
+
     function initSwiper() {
         if (currentSwiper) {
             currentSwiper.destroy(true, true);
@@ -180,4 +180,29 @@ document.addEventListener('DOMContentLoaded', function () {
     // Инициализация при загрузке
     initSwiper();
     filterServices('all');
+});
+
+var swiperBullet = new Swiper(".about-clinic__swiper-bullet", {
+    spaceBetween: 16,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        576: {
+            slidesPerView: 4,
+            spaceBetween: 16
+        },
+        768: {
+            slidesPerView: 6,
+            spaceBetween: 16
+        },
+    }
+
+});
+var swiperBase = new Swiper(".about-clinic__swiper-base", {
+    spaceBetween: 10,
+
+    thumbs: {
+        swiper: swiperBullet,
+    },
 });
