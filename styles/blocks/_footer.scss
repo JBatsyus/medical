@@ -8,16 +8,24 @@
 
     &__top {
         display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
         justify-content: space-between;
         align-items: end;
         margin-bottom: 32px;
 
         @include tablet {
             display: grid;
+            gap: 0;
             grid-template-rows: auto auto auto;
             justify-content: normal;
         }
 
+        @include mobile {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            row-gap: 32px;
+        }
     }
 
     &__top-mobile {
@@ -28,6 +36,21 @@
             justify-content: space-between;
             margin-bottom: 24px;
             grid-row: 1;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            row-gap: 24px;
+            grid-column: 1;
+            grid-row: 1;
+            margin-bottom: 0;
+        }
+    }
+
+    &__logo {
+        @include tablet {
+            width: 176px;
+            height: 34px;
         }
     }
 
@@ -46,13 +69,20 @@
             gap: 14px;
         }
 
+        @include mobile {
+            padding-block: 24px 16px;
+        }
+
         >* {
             @include tablet {
                 padding-bottom: 24px;
                 border-bottom: var(--border-gray_light);
             }
-        }
 
+            @include mobile {
+                padding-bottom: 14px;
+            }
+        }
 
         >*:last-child {
             @include tablet {
@@ -70,6 +100,12 @@
             gap: 12px;
         }
 
+        @include mobile {
+            flex-direction: column;
+            row-gap: 12px;
+            grid-column: 1/ -1;
+            grid-row: 2;
+        }
     }
 
     &__right {
@@ -81,6 +117,15 @@
             margin-bottom: 32px;
         }
 
+        @include mobile {
+            margin-bottom: 0;
+            flex-direction: column;
+            row-gap: 24px;
+            grid-column: 2;
+            grid-row: 1;
+            justify-self: self-end;
+            align-self: center;
+        }
     }
 
     &__menu-row {
@@ -92,7 +137,7 @@
 
         @include tablet {
             margin-bottom: 12px;
-            grid-template-columns: 1fr
+            grid-template-columns: 1fr;
         }
     }
 
@@ -107,7 +152,6 @@
             padding: 0;
             background: var(--white);
         }
-
     }
 
     &__menu-list {
@@ -123,11 +167,10 @@
 
         >* {
             @include tablet {
-                padding-bottom: 24px;
+                padding-bottom: 18px;
                 border-bottom: var(--border-gray_light);
             }
         }
-
 
         >*:last-child {
             @include tablet {
@@ -150,7 +193,6 @@
             margin-right: 0;
             width: 100%;
         }
-
     }
 
     &__menu-link {
@@ -187,6 +229,10 @@
             background-color: var(--gray_white);
         }
 
+        @include mobile {
+            text-align: left;
+            padding: 12px 16px;
+        }
     }
 
     &__ratings {
@@ -198,14 +244,8 @@
         }
 
         @include mobile {
-            flex-wrap: nowrap;
-            overflow-y: hidden;
-            width: 100%;
-            overflow-x: scroll;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            flex-wrap: wrap;
+            gap: 8px;
         }
     }
 
@@ -222,16 +262,6 @@
         justify-content: center;
         max-width: max-content;
     }
-
 }
-
-
-
-
-
-
-
-
-
 
 /*---------- FOOTER (END)---------------------*/
