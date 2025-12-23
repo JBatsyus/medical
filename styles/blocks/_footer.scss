@@ -1,0 +1,129 @@
+@use "../helpers"as *;
+
+/*---------- FOOTER (START)---------------------*/
+.footer {
+    font-size: 16px;
+    line-height: 1.1;
+    background-color: var(--white);
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 32px;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.01em;
+        color: var(--gray_blue_dark);
+        padding-block: 24px;
+    }
+
+    &__contacts {
+        display: flex;
+        gap: 64px;
+    }
+
+    &__right {
+        display: flex;
+        gap: 24px;
+    }
+
+    &__menu-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 24px;
+        margin-bottom: 32px;
+        width: 100%;
+    }
+
+    &__menu {
+        border: var(--border-gray_light);
+        background: var(--gray_white);
+        border-radius: 16px;
+        padding: 16px 40px;
+    }
+
+    &__menu-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__menu-item:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    &__menu-link {
+        white-space: nowrap;
+        text-shadow: none;
+        transition: text-shadow 0.2s;
+
+        &:hover {
+            text-shadow: 0 0 0.65px var(--blue_black), 0 0 0.65px var(--blue_black);
+        }
+    }
+
+    &__middle {
+        display: flex;
+        column-gap: 24px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__info {
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+        color: var(--gray_blue_dark);
+        border: var(--border-gray_light);
+        border-radius: 16px;
+        padding: 12px 24px;
+        max-width: max-content;
+    }
+
+    &__ratings {
+        display: flex;
+        gap: 12px;
+
+        @include mobile {
+            flex-wrap: nowrap;
+            overflow-y: hidden;
+            width: 100%;
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    &__rating {
+        flex: 0 1 145px;
+        min-width: 120px;
+        border: 2px solid var(--gray_light);
+        border-radius: 18px;
+        padding: 10px 12px;
+        display: flex;
+        white-space: nowrap;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*---------- FOOTER (END)---------------------*/
