@@ -180,7 +180,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Инициализация при загрузке
     initSwiper();
     filterServices('all');
+
+
+
 });
+
 
 var swiperBullet = new Swiper(".about-clinic__swiper-bullet", {
     spaceBetween: 16,
