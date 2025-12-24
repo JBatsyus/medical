@@ -210,3 +210,15 @@ var swiperBase = new Swiper(".about-clinic__swiper-base", {
         swiper: swiperBullet,
     },
 });
+
+const defaultSelect = () => {
+    const element = document.querySelector('.default');
+    const choices = new Choices(element, {
+        searchEnabled: false,//ввыключает поиск
+        shouldSort: false,//выключает алфавитный порядок
+    });
+
+
+};
+
+defaultSelect();

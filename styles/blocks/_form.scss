@@ -85,19 +85,20 @@
     }
 
     &__input,
-    &__select,
+    .choices__inner,
     &__textarea {
         width: 100%;
         border: var(--border-gray_light);
         border-radius: 8px;
         padding: 10px 16px;
-
+        height: 40px;
         font-weight: 300;
         font-size: 16px;
         line-height: 1.2;
 
         color: var(--gray_blue_dark);
         transition: border-color 0.4s ease;
+        background-color: var(--white);
 
         &:focus {
             outline: none;
@@ -114,44 +115,41 @@
             height: 80px;
         }
     }
-
-    &__select {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        cursor: pointer;
-
-        // Для Tom Select
-        &.ts-wrapper {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 0;
-            overflow: hidden;
-
-            .ts-control {
-                padding: 10px 15px;
-                border: none;
-                background: transparent;
-                font-size: 16px;
-            }
-
-            .ts-dropdown {
-                border: 1px solid #ddd;
-                border-top: none;
-                border-radius: 0 0 8px 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .ts-dropdown .option {
-                padding: 10px 15px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: #f0f0f0;
-                }
-            }
-        }
+// Кастомизация Choices
+    .choices__inner {
+        min-height: 40px;
     }
+
+    .choices__list--single {
+        padding: 0;
+    }
+
+    .is-open .choices__inner {
+        background-color: var(--white);
+    }
+
+    .choices__list--dropdown {
+        border: 1px solid #d9d9d9;
+        border-radius: 8px;
+        padding: 4px 16px;
+        // margin-top: 8px;
+    }
+
+    .choices__list--dropdown .choices__item {
+        position: relative;
+        padding-block: 12px;
+        border-bottom: var(--border-gray_light);
+    }
+
+    .choices__list--dropdown .choices__item:last-child {
+        border-bottom: none;
+    }
+
+    .choices__list--dropdown .choices__item--selectable.is-highlighted:after {
+        display: none;
+    }
+
+
 
     &__bottom {
         grid-column: 1 / -1;
@@ -209,12 +207,6 @@
             transform: rotate(45deg);
         }
 
-        // Доступность
-        // &:focus-visible+.form-section__checkbox-label::before {
-        //     outline: 2px solid var(--blue_dark);
-        //     outline-offset: 2px;
-        //     border-radius: 6px;
-        // }
     }
 
     &__checkbox-label {
