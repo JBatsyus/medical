@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./libs/plugins/swiper-bundle.min.css">
     <link rel="stylesheet" href="./libs/plugins/twentytwenty.css">
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.bootstrap5.css">
 </head>
 
 <body>
@@ -442,6 +443,81 @@
             </div>
         </section>
         <!-- УСЛУГИ END -->
+        <!-- ФОРМА START -->
+        <section class="form-section section">
+            <div class="container">
+                <div class="form-section__content">
+                    <div class="form-section__image">
+                        <img src="/images/doc-forma.png" alt="Врач" class="form-section__image-img">
+                    </div>
+                    <div class="form-section__form">
+                        <h2 class="form-section__title">Оставьте заявку</h2>
+
+                        <form class="form-section__form-inner" id="contactForm">
+                            <!-- ФИО -->
+                            <div class="form-section__field form-section__field--required">
+                                <label for="fullName" class="form-section__label">ФИО *</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="ФИО"
+                                    class="form-section__input" required inputmode="text" autocomplete="name">
+                            </div>
+
+                            <!-- Номер телефона -->
+                            <div class="form-section__field form-section__field--required">
+                                <label for="phone" class="form-section__label">Номер телефона *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+7 (900) 999-99-99"
+                                    class="form-section__input" required inputmode="tel" autocomplete="tel">
+                            </div>
+
+                            <!-- Направление -->
+                            <div class="form-section__field form-section__field--required">
+                                <label for="direction" class="form-section__label" >Направление *</label>
+                                <select id="direction" name="direction" class="form-section__select" required>
+                                    <option value="Хирургия">Хирургия</option>
+                                    <option value="терапия">Терапия</option>
+                                    <option value="стоматология">Стоматология</option>
+                                    <option value="дерматология">Дерматология</option>
+                                </select>
+                            </div>
+
+                            <!-- Комментарий -->
+                            <!-- Комментарий -->
+                            <div class="form-section__field">
+                                <label for="comment" class="form-section__label">Комментарий</label>
+                                <textarea id="comment" name="comment" placeholder="Комментарий"
+                                    class="form-section__textarea"></textarea>
+                            </div>
+
+                            <div class="form-section__bottom">
+                                <div class="form-section__checkboxes">
+                                    <div class="form-section__checkbox-item">
+                                        <input type="checkbox" id="agreement1" name="agreement1"
+                                            class="form-section__checkbox visually-hidden" required>
+                                        <label for="agreement1" class="form-section__checkbox-label">
+                                            <span> Я согласен и ознакомлен с <a href="#" class="form-section__link">
+                                                    договором
+                                                    оферты</a></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-section__checkbox-item">
+                                        <input type="checkbox" id="agreement2" name="agreement2"
+                                            class="form-section__checkbox  visually-hidden" required>
+                                        <label for="agreement2" class="form-section__checkbox-label">
+                                            <span> Я даю согласие на обработку своих <a href="#"
+                                                    class="form-section__link"> персональных данных</a></span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Кнопка -->
+                                <button type="submit" class="form-section__submit button button--primary">Оставить
+                                    заявку</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ФОРМА END -->
     </main>
     <!--— FOOTER START -->
     <footer class="footer">
@@ -558,7 +634,8 @@
 
     <script src="./libs/plugins/swiper-bundle.min.js"></script>
     <script src="./libs/plugins/jquery.min.js"></script>
-
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
     <script src="./libs/plugins/jquery.event.move.js"></script>
     <script src="./libs/plugins/jquery.twentytwenty.js"></script>
     <!-- Main script -->
