@@ -10,6 +10,14 @@ html {
 
 html {
     scroll-behavior: initial;
+    // scroll-behavior: smooth;
+}
+
+body.no-scroll {
+    overflow: hidden;
+    position: fixed; // Блокировка для iOS
+    width: 100%;
+    height: 100dvh; // Учет высоты мобильного браузера
 }
 
 body {
@@ -65,7 +73,6 @@ h2,
 }
 
 
-
 a,
 button,
 label,
@@ -109,6 +116,7 @@ a {
     outline-offset: rem(2);
     transition-duration: 0s !important;
 }
-.highlight{
+
+.highlight {
     color: var(--blue_dark);
 }

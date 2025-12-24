@@ -1,3 +1,61 @@
+const lenis = new Lenis({
+    // Длительность анимации прокрутки (в секундах).
+    // Чем больше значение — тем медленнее и плавнее скролл.
+    duration: 1.2,
+
+    // Коэффициент интерполяции (lerp = linear interpolation).
+    // Значение от 0 до 1:
+    // - 0.1 = очень плавно, но с "инерцией"
+    // - 0.5 = баланс между плавностью и отзывчивостью
+    // - 1 = мгновенная прокрутка (без сглаживания)
+    lerp: 0.5,
+
+    // Направление прокрутки: 
+    // 'vertical' — вертикальная (по умолчанию),
+    // 'horizontal' — горизонтальная,
+    // 'both' — оба направления (требует особой разметки)
+    direction: 'vertical',
+
+    // Направление жестов (для touch-устройств и трекпада):
+    // 'vertical' — только вертикальные свайпы
+    // 'horizontal' — только горизонтальные
+    // 'both' — любые жесты
+    // Полезно, чтобы избежать конфликтов с каруселями и слайдерами
+    gestureDirection: 'vertical',
+
+    // Включает плавную прокрутку при использовании колеса мыши
+    smoothWheel: true,
+
+    // Множитель скорости прокрутки колёсиком мыши.
+    // Значение 1 = стандартная скорость.
+    // Увеличение (>1) делает скролл быстрее, уменьшение (<1) — медленнее.
+    wheelMultiplier: 1,
+
+    // Множитель чувствительности для сенсорных экранов (свайпы).
+    // Значение 2 = прокрутка в 2 раза дальше за тот же свайп.
+    // Полезно для компенсации "тяжёлости" сенсорного скролла.
+    touchMultiplier: 2,
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+// Когда открываете мобильное меню:
+function openMenu() {
+    lenis.stop(); // Останавливает плавный скролл Lenis
+    document.body.classList.add('no-scroll');
+}
+
+// Когда закрываете:
+function closeMenu() {
+    lenis.start(); // Запускает обратно
+    document.body.classList.remove('no-scroll');
+}
+
+
 const heroSwiper = new Swiper('.hero-slider__swiper', {
     loop: true,
     effect: "fade",
@@ -214,11 +272,38 @@ var swiperBase = new Swiper(".about-clinic__swiper-base", {
 const defaultSelect = () => {
     const element = document.querySelector('.default');
     const choices = new Choices(element, {
-        searchEnabled: false,//ввыключает поиск
-        shouldSort: false,//выключает алфавитный порядок
+        searchEnabled: false, //ввыключает поиск
+        shouldSort: false, //выключает алфавитный порядок
     });
 
 
 };
 
 defaultSelect();
+
+const burger = document.querySelector('.header__burger');
+const menu = document.querySelector('.menu-mob');
+const body = document.body;
+
+if (burger && menu) {
+    burger.addEventListener('click', () => {
+        const isActive = burger.classList.toggle('active');
+        menu.classList.toggle('active');
+
+        if (isActive) {
+            body.classList.add('no-scroll');
+        } else {
+            body.classList.remove('no-scroll');
+        }
+    });
+
+    // Закрытие меню при клике на ссылки
+    const menuLinks = menu.querySelectorAll('.menu-mob__menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            burger.classList.remove('active');
+            menu.classList.remove('active');
+            body.classList.remove('no-scroll');
+        });
+    });
+}
