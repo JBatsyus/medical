@@ -1,7 +1,6 @@
 @use "../helpers"as *;
 
 /*---------МОБИЛЬНОЕ МЕНЮ (START)--------*/
-
 .menu-mob {
     display: block;
     background-color: var(--white);
@@ -81,7 +80,6 @@
         white-space: nowrap;
         text-shadow: none;
         transition: text-shadow 0.2s;
-
 
         &:hover {
             text-shadow: 0 0 0.65px var(--blue_black), 0 0 0.65px var(--blue_black);
