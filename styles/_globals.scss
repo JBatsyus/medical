@@ -111,7 +111,7 @@ a {
 
 // при фокусе на элементе, который доступен с клавиатуры, добавить аутлайн
 :focus-visible {
-    outline: rem(2) dashed var(---white);
+    outline: rem(2) dashed var(--grad-end);
     outline-offset: rem(2);
     transition-duration: 0s !important;
 }
