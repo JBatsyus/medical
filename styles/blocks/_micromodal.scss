@@ -1,0 +1,200 @@
+@use "../helpers"as *;
+
+/*---------МОДАЛКА (START)--------*/
+
+
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.modal__container {
+    border: var(--border-gray_light);
+    padding: 40px 48px;
+    border-radius: 24px;
+    max-height: 100vh;
+    background: var(--gray_2);
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+    overflow-y: inherit;
+    width: 790px;
+
+    @include tablet {
+
+        padding: 32px 24px;
+        width: 616px;
+    }
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.modal__title {
+
+    font-weight: 600;
+    font-size: 32px;
+
+    line-height: 1.1;
+
+    @include tablet {
+        font-size: 24px;
+    }
+}
+
+.modal__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: var(--gray_blue);
+    border: var(--border-gray_light);
+
+    @include mobile {
+        height: 32px;
+        width: 32px;
+    }
+}
+
+.modal__header .modal__close:before {
+    content: "\2715";
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--blue_dark);
+}
+
+.modal__header .modal__close:hover:before {
+    color: var(--blue_hover);
+}
+
+.modal__header .modal__close:active:before {
+    color: var(--blue_press);
+}
+
+
+@keyframes mmfadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mmfadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes mmslideIn {
+    from {
+        transform: translateY(15%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes mmslideOut {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10%);
+    }
+}
+
+.micromodal-slide {
+    display: none;
+}
+
+.micromodal-slide.is-open {
+    display: block;
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+    animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+// .micromodal-slide[aria-hidden="false"] .modal__container {
+//     animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+// }
+
+// .micromodal-slide[aria-hidden="true"] .modal__overlay {
+//     animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+// }
+
+// .micromodal-slide[aria-hidden="true"] .modal__container {
+//     animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+// }
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+    will-change: transform;
+}
+@keyframes mmslideIn {
+    from {
+        transform: perspective(1000px) rotateX(-10deg) translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: perspective(1000px) rotateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes mmslideOut {
+    from {
+        transform: perspective(1000px) rotateX(0) translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        /* Окно уходит чуть ниже и наклоняется назад */
+        transform: perspective(1000px) rotateX(-15deg) translateY(30px);
+        opacity: 0;
+    }
+}
+
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+    /* cubic-bezier(0.16, 1, 0.3, 1) — плавный "дорогой" вылет */
+    animation: mmslideIn .45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+    /* закрытие чуть быстрее, чем открытие */
+    animation: mmslideOut .3s ease-in both;
+}
+
+/* Оверлей (фон) тоже должен исчезать плавно */
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+    animation: mmfadeOut .3s ease-in both;
+}
+/*---------МОДАЛКА(END)--------*/

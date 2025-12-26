@@ -56,7 +56,68 @@ function closeMenu() {
 }
 
 
+  $(document).ready(function () {
 
+            var beforeAfterSwiper = new Swiper('.before-after__swiper', {
+                loop: true,
+                speed: 600,
+                slidesPerView: 1.1,
+                spaceBetween: 16,
+                // Важно: отключаем стандартную блокировку касаний, 
+                // чтобы TwentyTwenty мог перехватить событие
+                touchStartPreventDefault: false,
+
+                breakpoints: {
+                    576: {
+                        slidesPerView: 1.1,
+                        spaceBetween: 16
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    },
+                },
+
+                navigation: {
+                    prevEl: '.before-after__nav--prev',
+                    nextEl: '.before-after__nav--next',
+                },
+
+                pagination: {
+                    el: '.before-after__pagination',
+                    clickable: true,
+                },
+
+                on: {
+                    init: function () {
+                        // 2. Инициализируем TwentyTwenty внутри слайдов
+                        $(".twentytwenty-container").twentytwenty({
+                            default_offset_pct: 0.5,
+                            orientation: 'horizontal',
+                            before_label: 'Было',
+                            after_label: 'Стало',
+                            no_overlay: false, // показывать надписи "before/after"
+                            move_with_handle_only: true, // движение только за ручку
+                            click_to_move: false
+                        });
+                    },
+                }
+            });
+
+            // 3. Блокируем перелистывание слайдов Swiper, когда тянем ползунок
+            // Используем делегирование событий, так как ползунки создаются динамически
+            $(document).on("mousedown touchstart", ".twentytwenty-handle", function () {
+                beforeAfterSwiper.allowTouchMove = false;
+            });
+
+            $(document).on("mouseup touchend", function () {
+                beforeAfterSwiper.allowTouchMove = true;
+            });
+        });
 const heroSwiper = new Swiper('.hero-slider__swiper', {
     loop: true,
     effect: "fade",
@@ -283,6 +344,17 @@ const defaultSelect = () => {
 
 defaultSelect();
 
+function initChoices(container = document) {
+  container.querySelectorAll('.default').forEach(el => {
+    if (!el.choices) {
+      new Choices(el, {
+        searchEnabled: false,
+        shouldSort: false
+      });
+    }
+  });
+}
+
 const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.menu-mob');
 const body = document.body;
@@ -324,3 +396,36 @@ if (burger && menu) {
         });
     });
 }
+
+// Используйте jQuery для привязки Fancybox
+// $('[data-fancybox]').fancybox({
+//     hideScrollbar: false,
+//     // Используем колбэк beforeShow (или beforeMove/beforeLoad в зависимости от версии)
+//     beforeShow: function (instance, current) {
+//         // Получаем ссылку на элемент, который вызвал модальное окно, через opts.$orig
+//         var triggerButton = current.opts.$orig;
+
+//         // Получаем данные из атрибутов кнопки
+//         var title = triggerButton.data('title');
+//         var buttonText = triggerButton.data('button-text');
+
+//         // Находим элементы заголовка и кнопки внутри модального окна и обновляем их
+//         // (убедитесь, что ваш HTML исправлен и идентификаторы уникальны)
+//         var modalTitleElement = $('#modal-title');
+//         var submitButtonElement = $('#submit-button');
+
+//         if (modalTitleElement.length && title) {
+//             modalTitleElement.text(title);
+//         }
+//         if (submitButtonElement.length && buttonText) {
+//             submitButtonElement.text(buttonText);
+//         }
+//     }
+// });
+
+// // Обработчик отправки формы
+// // Используем исправленный уникальный ID формы из предыдущего ответа
+// $('#contactFormUnique').on('submit', function (event) {
+//     console.log("Форма отправлена с заголовком: " + $('#modal-title').text());
+//     // event.preventDefault(); 
+// });
