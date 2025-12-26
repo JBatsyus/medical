@@ -56,68 +56,68 @@ function closeMenu() {
 }
 
 
-  $(document).ready(function () {
+$(document).ready(function () {
 
-            var beforeAfterSwiper = new Swiper('.before-after__swiper', {
-                loop: true,
-                speed: 600,
+    var beforeAfterSwiper = new Swiper('.before-after__swiper', {
+        loop: true,
+        speed: 600,
+        slidesPerView: 1.1,
+        spaceBetween: 16,
+        // Важно: отключаем стандартную блокировку касаний, 
+        // чтобы TwentyTwenty мог перехватить событие
+        touchStartPreventDefault: false,
+
+        breakpoints: {
+            576: {
                 slidesPerView: 1.1,
-                spaceBetween: 16,
-                // Важно: отключаем стандартную блокировку касаний, 
-                // чтобы TwentyTwenty мог перехватить событие
-                touchStartPreventDefault: false,
+                spaceBetween: 16
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1200: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            },
+        },
 
-                breakpoints: {
-                    576: {
-                        slidesPerView: 1.1,
-                        spaceBetween: 16
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
-                    },
-                    1200: {
-                        slidesPerView: 3,
-                        spaceBetween: 20
-                    },
-                },
+        navigation: {
+            prevEl: '.before-after__nav--prev',
+            nextEl: '.before-after__nav--next',
+        },
 
-                navigation: {
-                    prevEl: '.before-after__nav--prev',
-                    nextEl: '.before-after__nav--next',
-                },
+        pagination: {
+            el: '.before-after__pagination',
+            clickable: true,
+        },
 
-                pagination: {
-                    el: '.before-after__pagination',
-                    clickable: true,
-                },
+        on: {
+            init: function () {
+                // 2. Инициализируем TwentyTwenty внутри слайдов
+                $(".twentytwenty-container").twentytwenty({
+                    default_offset_pct: 0.5,
+                    orientation: 'horizontal',
+                    before_label: 'Было',
+                    after_label: 'Стало',
+                    no_overlay: false, // показывать надписи "before/after"
+                    move_with_handle_only: true, // движение только за ручку
+                    click_to_move: false
+                });
+            },
+        }
+    });
 
-                on: {
-                    init: function () {
-                        // 2. Инициализируем TwentyTwenty внутри слайдов
-                        $(".twentytwenty-container").twentytwenty({
-                            default_offset_pct: 0.5,
-                            orientation: 'horizontal',
-                            before_label: 'Было',
-                            after_label: 'Стало',
-                            no_overlay: false, // показывать надписи "before/after"
-                            move_with_handle_only: true, // движение только за ручку
-                            click_to_move: false
-                        });
-                    },
-                }
-            });
+    // 3. Блокируем перелистывание слайдов Swiper, когда тянем ползунок
+    // Используем делегирование событий, так как ползунки создаются динамически
+    $(document).on("mousedown touchstart", ".twentytwenty-handle", function () {
+        beforeAfterSwiper.allowTouchMove = false;
+    });
 
-            // 3. Блокируем перелистывание слайдов Swiper, когда тянем ползунок
-            // Используем делегирование событий, так как ползунки создаются динамически
-            $(document).on("mousedown touchstart", ".twentytwenty-handle", function () {
-                beforeAfterSwiper.allowTouchMove = false;
-            });
-
-            $(document).on("mouseup touchend", function () {
-                beforeAfterSwiper.allowTouchMove = true;
-            });
-        });
+    $(document).on("mouseup touchend", function () {
+        beforeAfterSwiper.allowTouchMove = true;
+    });
+});
 const heroSwiper = new Swiper('.hero-slider__swiper', {
     loop: true,
     effect: "fade",
@@ -345,14 +345,14 @@ const defaultSelect = () => {
 defaultSelect();
 
 function initChoices(container = document) {
-  container.querySelectorAll('.default').forEach(el => {
-    if (!el.choices) {
-      new Choices(el, {
-        searchEnabled: false,
-        shouldSort: false
-      });
-    }
-  });
+    container.querySelectorAll('.default').forEach(el => {
+        if (!el.choices) {
+            new Choices(el, {
+                searchEnabled: false,
+                shouldSort: false
+            });
+        }
+    });
 }
 
 const burger = document.querySelector('.header__burger');

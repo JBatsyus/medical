@@ -3,6 +3,7 @@
 /*---------МОДАЛКА (START)--------*/
 
 
+
 .modal__overlay {
     position: fixed;
     top: 0;
@@ -24,7 +25,6 @@
     border-radius: 24px;
     max-height: 100vh;
     background: var(--gray_2);
-    overflow-y: auto;
     box-sizing: border-box;
     position: relative;
     overflow-y: inherit;
@@ -64,7 +64,8 @@
     width: 40px;
     border-radius: 100%;
     background-color: var(--gray_blue);
-    border: var(--border-gray_light);
+    border: var(--border-gray_light) !important;
+    margin-left: auto;
 
     @include mobile {
         height: 32px;
@@ -72,22 +73,134 @@
     }
 }
 
-.modal__header .modal__close:before {
+.modal__close:before {
     content: "\2715";
     font-size: 14px;
     font-weight: bold;
     color: var(--blue_dark);
 }
 
-.modal__header .modal__close:hover:before {
+.modal__close:hover:before {
     color: var(--blue_hover);
 }
 
-.modal__header .modal__close:active:before {
+.modal__close:active:before {
     color: var(--blue_press);
 }
 
+// МОДАЛКА УСЛУГИ
+.modal__container.modal-service {
+    width: 1330px;
+    padding: 40px;
 
+    max-height: calc(90vh - 100px);
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.modal-service {
+    .modal__close {
+        flex-shrink: 0;
+    }
+
+    .modal__content {
+
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+        padding-top: 16px;
+        overflow-y: auto;
+
+    }
+
+    .modal__image {
+        grid-column: 5 span;
+
+    }
+
+    .modal__text {
+        grid-column: 7 span;
+
+
+    }
+
+    .modal__header {
+        display: grid;
+        row-gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .modal__title {
+        color: var(--blue_dark);
+    }
+
+    .modal__price {
+        border: 1px solid #d9d9d9;
+        border-radius: 24px;
+        padding: 8px 16px;
+        width: max-content;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.2;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .modal__description {
+        font-size: 18px;
+        line-height: 1.6;
+
+        strong {
+            font-weight: 600;
+            color: var(--blue_dark);
+        }
+
+        h3 {
+
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0 0 24px 0;
+            padding: 0;
+
+            li {
+                margin-bottom: 8px;
+                position: relative;
+                padding-left: 20px;
+
+                &::before {
+                    content: "○";
+                    position: absolute;
+                    left: 0;
+                    color: var(--color-secondary);
+                }
+            }
+        }
+
+        .important-text {
+            border: var(--border-gray_light);
+            border-radius: 16px;
+            padding: 16px;
+            background: var(--gray_white);
+        }
+    }
+}
+
+
+
+// Анимации модального окна
 @keyframes mmfadeIn {
     from {
         opacity: 0;
@@ -154,8 +267,9 @@
 
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
-    will-change: transform;
+    // will-change: transform;
 }
+
 @keyframes mmslideIn {
     from {
         transform: perspective(1000px) rotateX(-10deg) translateY(20px);
@@ -197,4 +311,5 @@
 .micromodal-slide[aria-hidden="true"] .modal__overlay {
     animation: mmfadeOut .3s ease-in both;
 }
+
 /*---------МОДАЛКА(END)--------*/

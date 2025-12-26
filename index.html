@@ -518,11 +518,11 @@
     </footer>
     <!--— FOOTER END -->
     <!-- Кнопка открытия -->
-    <button type="button" data-micromodal-trigger="modal-1">
-        Открыть модальное окно
+    <button class="btn btn--primary" data-micromodal-trigger="modal">
+        Подробнее о МРТ
     </button>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно формы-->
     <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
@@ -593,6 +593,81 @@
             </div>
         </div>
     </div>
+    <!-- Модальное окно услуги-->
+    <div class="modal micromodal-slide" id="modal" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container modal-service" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-lenis-prevent>
+                <button type="button" class="modal__close " aria-label="Закрыть" data-micromodal-close></button>
+
+                <div class="modal__content ">
+                    <!-- СЛАЙДЕР-->
+                    <div class="modal__image">
+                        <img src="images/mrt.jpg" alt="МРТ-диагностика" class="modal__image-img">
+                        <!-- Блок связи -->
+                        <div class="modal__contact">
+                            <h3>Свяжитесь с нами</h3>
+                            <p>Оставьте заявку и мы поможем в решении всех ваших вопросов</p>
+                            <a href="#" class="btn btn--primary modal__contact-btn">Оставить заявку</a>
+                        </div>
+                    </div>
+
+                    <!-- Текст -->
+                    <div class="modal__text">
+                        <header class="modal__header">
+                            <h2 id="modal-title" class="modal__title">Полная диагностика МРТ</h2>
+                            <p class="modal__price">от <span>2799</span> ₽</p>
+                        </header>
+
+
+                        <div class="modal__description">
+                            <p>Магнитно‑резонансная томография (МРТ) — это <strong> современный, неинвазивный и
+                                    безопасный метод диагностики,</strong> позволяющий получить детализированные
+                                трёхмерные изображения внутренних структур организма. В нашем центре вы можете пройти
+                                полную МРТ‑диагностику, которая даёт исчерпывающую информацию о состоянии органов и
+                                тканей без лучевой нагрузки и дискомфорта.</p>
+                            <h3>Полная МРТ‑диагностика охватывает ключевые зоны организма и позволяет комплексно оценить
+                                состояние:</h3>
+                            <ul>
+                                <li>головного и спинного мозга;</li>
+                                <li>суставов и связочного аппарата;</li>
+                                <li>позвоночника и межпозвонковых дисков;</li>
+                                <li>органов брюшной полости и забрюшинного пространства;</li>
+                            </ul>
+                            <p>Процедура проходит комфортно и безболезненно. Вы располагаетесь на выдвижном столе
+                                томографа, а специальная система фиксации обеспечивает неподвижность для максимальной
+                                чёткости снимков.</p>
+                            <p>Всё время исследования медицинский персонал находится на связи и контролирует ваше
+                                состояние.</p>
+                            <p class="important-text">Всё время исследования медицинский персонал находится на связи и
+                                контролирует ваше состояние.</p>
+                            <p><strong>Магнитно‑резонансная томография (МРТ)</strong> — это современный, неинвазивный и
+                                безопасный метод диагностики, позволяющий получить детализированные
+                                трёхмерные изображения внутренних структур организма. В нашем центре вы можете пройти
+                                полную МРТ‑диагностику, которая даёт исчерпывающую информацию о состоянии органов и
+                                тканей без лучевой нагрузки и дискомфорта.</p>
+                            <h3>Полная МРТ‑диагностика охватывает ключевые зоны организма и позволяет комплексно оценить
+                                состояние:</h3>
+                            <ul>
+                                <li>головного и спинного мозга;</li>
+                                <li>суставов и связочного аппарата;</li>
+                                <li>позвоночника и межпозвонковых дисков;</li>
+                                <li>органов брюшной полости и забрюшинного пространства;</li>
+                            </ul>
+                            <p>Процедура проходит комфортно и безболезненно. Вы располагаетесь на выдвижном столе
+                                томографа, а специальная система фиксации обеспечивает неподвижность для максимальной
+                                чёткости снимков.</p>
+                            <p>Всё время исследования медицинский персонал находится на связи и контролирует ваше
+                                состояние.</p>
+                            <p class="important-text">Всё время исследования медицинский персонал находится на связи и
+                                контролирует ваше состояние.</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- JS -->
     <script src="./libs/plugins/swiper-bundle.min.js"></script>
     <script src="./libs/plugins/jquery.min.js"></script>
@@ -609,30 +684,35 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             MicroModal.init({
-                disableScroll: true,
-                awaitOpenAnimation: true, // Ждать завершения анимации открытия
+                awaitOpenAnimation: true,
                 awaitCloseAnimation: true,
                 onShow: (modal, trigger) => {
-                    lenis.stop();
-                    // trigger — это кнопка, на которую нажали
+                    // Останавливаем Lenis (с проверкой на существование)
+                    if (window.lenis) window.lenis.stop();
+                    else if (typeof lenis !== 'undefined') lenis.stop();
+
                     if (trigger) {
                         const titleText = trigger.getAttribute('data-title');
                         const btnText = trigger.getAttribute('data-btn');
-
-                        // Находим элементы внутри открытой модалки
                         const modalTitle = modal.querySelector('.modal__title');
                         const modalSubmitBtn = modal.querySelector('.form-section__submit');
 
-                        // Меняем текст, если атрибуты заданы
-                        if (titleText) modalTitle.textContent = titleText;
-                        if (btnText) modalSubmitBtn.textContent = btnText;
+                        if (titleText && modalTitle) modalTitle.textContent = titleText;
+                        if (btnText && modalSubmitBtn) modalSubmitBtn.textContent = btnText;
                     }
-
-                    //инициализация Choices
                     initChoices(modal);
                 },
                 onClose: (modal) => {
-                    lenis.start(); // Запускаем Lenis обратно
+                    // 1. Запускаем Lenis обратно
+                    if (window.lenis) window.lenis.start();
+                    else if (typeof lenis !== 'undefined') lenis.start();
+
+                    // 2. Страховка от CSS-блокировки (удаляем overflow: hidden)
+                    // Делаем небольшую задержку, чтобы анимация закрытия успела завершиться
+                    setTimeout(() => {
+                        document.documentElement.style.removeProperty('overflow');
+                        document.body.style.removeProperty('overflow');
+                    }, 100);
                 }
             });
         });
