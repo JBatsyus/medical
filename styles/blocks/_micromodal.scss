@@ -15,6 +15,11 @@
         z-index: 100;
         background: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(3px);
+        &:has(.modal-service) {
+        @include tablet {
+            padding: 0 40px; 
+        }
+    }
     }
 
     &__container {
@@ -39,8 +44,14 @@
             flex-direction: column;
             width: 1330px;
             padding: 40px;
+            margin-inline: 40px;
             max-height: calc(96vh - 100px);
             min-height: 0;
+
+            @include tablet {
+                width: 100%;
+                padding: 32px;
+            }
         }
     }
 
@@ -56,9 +67,6 @@
         font-size: 32px;
         line-height: 1.1;
 
-        @include tablet {
-            font-size: 24px;
-        }
     }
 
     &__close {
@@ -96,6 +104,8 @@
     // Стили внутри контекста .modal-service
 
     &-service {
+       
+
         .modal__close {
             flex-shrink: 0;
         }
@@ -108,15 +118,34 @@
             overflow-y: auto;
             flex-grow: 1;
             scrollbar-width: none;
+
+            @include tablet {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                padding-top: 24px;
+            }
         }
 
         .modal__block {
             grid-column: 5 span;
+
+            @include tablet {
+                grid-column: auto;
+                width: 100%;
+                display: flex;
+                column-gap: 16px;
+            }
         }
 
 
         .modal__text {
             grid-column: 7 span;
+
+            @include tablet {
+                grid-column: auto;
+                width: 100%;
+            }
         }
 
         .modal__header {
@@ -194,6 +223,15 @@
     &__swiper {
         margin-bottom: 40px;
 
+        @include tablet {
+            width: 50%;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 12px;
+            height: 200px;
+        }
+
         img {
             width: 100%;
             height: 100%;
@@ -209,10 +247,16 @@
 
         .swiper-slide {
             height: auto;
+
+            @include tablet {
+                height: 100%;
+            }
         }
 
         @include tablet {
-            margin-bottom: 16px;
+            width: 100%;
+            height: 100%; // Чтобы занимал всю высоту modal__block
+            margin-bottom: 0;
         }
     }
 
@@ -223,11 +267,9 @@
         height: 360px;
 
         @include tablet {
-            aspect-ratio: 12 / 5;
-        }
 
-        @include mobile {
-            aspect-ratio: 92 / 53;
+            height: 100%;
+            aspect-ratio: auto;
         }
 
     }
@@ -244,17 +286,22 @@
         width: 100%;
 
         @include tablet {
-            aspect-ratio: 18 / 9;
+            height: 44px;
         }
 
-        @include mobile {
-            aspect-ratio: 82 / 50;
-        }
+        // @include mobile {
+        //     aspect-ratio: 82 / 50;
+        // }
     }
 
     // Оставить заявку
 
-    
+
+    &__cta {
+        @include tablet {
+            width: 50%;
+        }
+    }
 
     &__cta-content {
         position: relative;
@@ -263,6 +310,11 @@
         overflow: hidden;
         padding: 32px;
         background: var(--gray_blue);
+
+        @include tablet {
+
+            padding: 24px 32px;
+        }
 
         &::after {
             content: "";
@@ -275,6 +327,10 @@
             background-size: contain;
 
             z-index: 0;
+
+            @include tablet {
+                display: none;
+            }
         }
     }
 
@@ -284,6 +340,10 @@
         line-height: 1.2;
         color: var(--blue_dark);
         margin-bottom: 12px;
+
+        @include tablet {
+            font-size: 24px;
+        }
     }
 
     &__cta-desc {
@@ -291,10 +351,22 @@
         line-height: 1.4;
         margin-bottom: 24px;
         max-width: 285px;
+        width: 100%;
+
+        @include tablet {
+            font-size: 16px;
+            margin-bottom: 16px;
+            max-width: 100%;
+        }
     }
 
     &__cta-btn {
         max-width: max-content;
+
+        @include tablet {
+            max-width: 100%;
+
+        }
     }
 
     &__cta-title,

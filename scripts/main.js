@@ -337,14 +337,18 @@ var swiperBase = new Swiper(".about-clinic__swiper-base", {
 var swiperBullet = new Swiper(".modal__swiper-bullet", {
     spaceBetween: 5,
     slidesPerView: 7,
-    // direction: 'vertical',
+    direction: "horizontal",
     freeMode: true,
     watchSlidesProgress: true,
     breakpoints: {
         768: {
+            direction: 'vertical',
             slidesPerView: 4,
-            spaceBetween: 10
+            spaceBetween: 8
         },
+
+
+
     }
 
 });
@@ -421,4 +425,3 @@ if (burger && menu) {
         });
     });
 }
-
