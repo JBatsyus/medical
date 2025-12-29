@@ -346,10 +346,12 @@ var swiperBullet = new Swiper(".modal__swiper-bullet", {
             slidesPerView: 4,
             spaceBetween: 8
         },
-
-
-
-    }
+            1024: {
+            direction: 'horizontal',
+            slidesPerView: 4, // или сколько вам нужно на десктопе
+            spaceBetween: 8
+        }
+}
 
 });
 var swiperBase = new Swiper(".modal__swiper-base", {

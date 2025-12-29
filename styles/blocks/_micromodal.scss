@@ -15,11 +15,14 @@
         z-index: 100;
         background: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(3px);
+
         &:has(.modal-service) {
-        @include tablet {
-            padding: 0 40px; 
+            padding: 0 40px;
+
+            @include mobile {
+                padding: 0;
+            }
         }
-    }
     }
 
     &__container {
@@ -44,13 +47,18 @@
             flex-direction: column;
             width: 1330px;
             padding: 40px;
-            margin-inline: 40px;
             max-height: calc(96vh - 100px);
             min-height: 0;
 
             @include tablet {
                 width: 100%;
                 padding: 32px;
+            }
+
+            @include mobile {
+                border-radius: 0;
+                padding: 24px 16px;
+                max-height: 100vh;
             }
         }
     }
@@ -66,7 +74,6 @@
         font-weight: 600;
         font-size: 32px;
         line-height: 1.1;
-
     }
 
     &__close {
@@ -104,9 +111,9 @@
     // Стили внутри контекста .modal-service
 
     &-service {
-       
-
         .modal__close {
+            height: 40px;
+            width: 40px;
             flex-shrink: 0;
         }
 
@@ -125,6 +132,11 @@
                 gap: 40px;
                 padding-top: 24px;
             }
+
+            @include mobile {
+                padding-top: 16px;
+                gap: 24px;
+            }
         }
 
         .modal__block {
@@ -137,7 +149,6 @@
                 column-gap: 16px;
             }
         }
-
 
         .modal__text {
             grid-column: 7 span;
@@ -232,6 +243,12 @@
             height: 200px;
         }
 
+        @include mobile {
+            width: 100%;
+            display: block;
+            height: max-content;
+        }
+
         img {
             width: 100%;
             height: 100%;
@@ -255,8 +272,12 @@
 
         @include tablet {
             width: 100%;
-            height: 100%; // Чтобы занимал всю высоту modal__block
+            height: 100%;
             margin-bottom: 0;
+        }
+
+        @include mobile {
+            margin-bottom: 8px;
         }
     }
 
@@ -267,11 +288,13 @@
         height: 360px;
 
         @include tablet {
-
             height: 100%;
             aspect-ratio: auto;
         }
 
+        @include mobile {
+            height: 200px;
+        }
     }
 
     &__swiper-bullet {
@@ -289,17 +312,20 @@
             height: 44px;
         }
 
-        // @include mobile {
-        //     aspect-ratio: 82 / 50;
-        // }
+        @include mobile {
+            height: 48px;
+        }
     }
 
     // Оставить заявку
 
-
     &__cta {
         @include tablet {
             width: 50%;
+        }
+
+        @include mobile {
+            display: none;
         }
     }
 
@@ -312,8 +338,7 @@
         background: var(--gray_blue);
 
         @include tablet {
-
-            padding: 24px 32px;
+            padding: 25px;
         }
 
         &::after {
@@ -365,7 +390,6 @@
 
         @include tablet {
             max-width: 100%;
-
         }
     }
 
@@ -375,7 +399,6 @@
         position: relative;
         z-index: 1;
     }
-
 }
 
 // Анимации модального окна
