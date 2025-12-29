@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-
+// Свайпер в секции О нашей клинике
 var swiperBullet = new Swiper(".about-clinic__swiper-bullet", {
     spaceBetween: 16,
     slidesPerView: 4,
@@ -332,6 +332,31 @@ var swiperBase = new Swiper(".about-clinic__swiper-base", {
     },
 });
 
+// Свайпер в модальном окне
+
+var swiperBullet = new Swiper(".modal__swiper-bullet", {
+    spaceBetween: 5,
+    slidesPerView: 7,
+    // direction: 'vertical',
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        768: {
+            slidesPerView: 4,
+            spaceBetween: 10
+        },
+    }
+
+});
+var swiperBase = new Swiper(".modal__swiper-base", {
+    spaceBetween: 10,
+
+    thumbs: {
+        swiper: swiperBullet,
+    },
+});
+
+// Выпадающий список
 const defaultSelect = () => {
     const element = document.querySelector('.default');
     const choices = new Choices(element, {
@@ -397,35 +422,3 @@ if (burger && menu) {
     });
 }
 
-// Используйте jQuery для привязки Fancybox
-// $('[data-fancybox]').fancybox({
-//     hideScrollbar: false,
-//     // Используем колбэк beforeShow (или beforeMove/beforeLoad в зависимости от версии)
-//     beforeShow: function (instance, current) {
-//         // Получаем ссылку на элемент, который вызвал модальное окно, через opts.$orig
-//         var triggerButton = current.opts.$orig;
-
-//         // Получаем данные из атрибутов кнопки
-//         var title = triggerButton.data('title');
-//         var buttonText = triggerButton.data('button-text');
-
-//         // Находим элементы заголовка и кнопки внутри модального окна и обновляем их
-//         // (убедитесь, что ваш HTML исправлен и идентификаторы уникальны)
-//         var modalTitleElement = $('#modal-title');
-//         var submitButtonElement = $('#submit-button');
-
-//         if (modalTitleElement.length && title) {
-//             modalTitleElement.text(title);
-//         }
-//         if (submitButtonElement.length && buttonText) {
-//             submitButtonElement.text(buttonText);
-//         }
-//     }
-// });
-
-// // Обработчик отправки формы
-// // Используем исправленный уникальный ID формы из предыдущего ответа
-// $('#contactFormUnique').on('submit', function (event) {
-//     console.log("Форма отправлена с заголовком: " + $('#modal-title').text());
-//     // event.preventDefault(); 
-// });

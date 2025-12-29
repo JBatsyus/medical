@@ -596,18 +596,93 @@
     <!-- Модальное окно услуги-->
     <div class="modal micromodal-slide" id="modal" aria-hidden="true">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-            <div class="modal__container modal-service" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-lenis-prevent>
+            <div class="modal__container modal-service" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+                data-lenis-prevent>
                 <button type="button" class="modal__close " aria-label="Закрыть" data-micromodal-close></button>
 
                 <div class="modal__content ">
-                    <!-- СЛАЙДЕР-->
-                    <div class="modal__image">
-                        <img src="images/mrt.jpg" alt="МРТ-диагностика" class="modal__image-img">
+                    <div class="modal__block">
+                        <!-- СЛАЙДЕР -->
+                        <div class="modal__swiper">
+                            <div class="swiper modal__swiper-base">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="modal__item">
+                                            <img src="./images/about/1.png" alt="Оборудование">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item">
+                                            <img src="./images/about/2.png" alt="Персонал">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item">
+                                            <img src="./images/about/3.png" alt="Кабинет">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item">
+                                            <img src="./images/about/4.png" alt="Пациент">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item">
+                                            <img src="./images/about/5.png" alt="Команда">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item">
+                                            <img src="./images/about/6.png" alt="Работа">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div thumbsSlider="" class="swiper modal__swiper-bullet">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="modal__item-bullet">
+                                            <img src="./images/about/1.png" alt="Оборудование">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item-bullet">
+                                            <img src="./images/about/2.png" alt="Оборудование">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item-bullet">
+                                            <img src="./images/about/3.png" alt="Оборудование">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item-bullet">
+                                            <img src="./images/about/4.png" alt="Оборудование">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item-bullet">
+                                            <img src="./images/about/5.png" alt="Оборудование">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="modal__item-bullet">
+                                            <img src="./images/about/6.png" alt="Оборудование">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                         <!-- Блок связи -->
-                        <div class="modal__contact">
-                            <h3>Свяжитесь с нами</h3>
-                            <p>Оставьте заявку и мы поможем в решении всех ваших вопросов</p>
-                            <a href="#" class="btn btn--primary modal__contact-btn">Оставить заявку</a>
+                        <div class="modal__cta">
+                            <div class="modal__cta-content">
+                                <h3 class="modal__cta-title">Свяжитесь с нами</h3>
+                                <p class="modal__cta-desc">Оставьте заявку и&nbsp;мы&nbsp;поможем в&nbsp;решении всех ваших вопросов
+                                </p>
+                                <a href="javascript:void(0);" class="faq__cta-btn button button--primary">Оставить
+                                    заявку</a>
+                            </div>
                         </div>
                     </div>
 
