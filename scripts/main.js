@@ -356,17 +356,17 @@ var swiperBullet = new Swiper(".modal__swiper-bullet", {
 });
 var swiperBase = new Swiper(".modal__swiper-base", {
     spaceBetween: 10,
-    slidesPerGroup: 4,//для буллетов на адаптиве
+
 
     thumbs: {
         swiper: swiperBullet,
     },
-    pagination: {
-        el: '.modal__pagination',
-        clickable: true,
-        // dynamicBullets: true,
-        // dynamicMainBullets: 4,
-    },
+    // pagination: {
+    //     el: '.modal__pagination',
+    //     clickable: true,
+    //     // dynamicBullets: true,
+    //     // dynamicMainBullets: 4,
+    // },
 });
 
 // Выпадающий список
