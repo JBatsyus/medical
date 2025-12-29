@@ -43,17 +43,49 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// Когда открываем мобильное меню:
-function openMenu() {
-    lenis.stop(); // Останавливает плавный скролл Lenis
-    document.body.classList.add('no-scroll');
+// МОБИЛЬНОЕ МЕНЮ
+const burger = document.querySelector('.header__burger');
+const menu = document.querySelector('.menu-mob');
+const body = document.body;
+
+// 1. Логика открытия/закрытия бургера
+if (burger && menu) {
+    burger.addEventListener('click', () => {
+        const isActive = burger.classList.toggle('active');
+        menu.classList.toggle('active');
+        body.classList.toggle('no-scroll', isActive);
+    });
+
+    // 2. Логика клика по ссылкам (включая скролл)
+    const allLinks = document.querySelectorAll('a[href^="#"]');
+
+    allLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                e.preventDefault(); // Убираем хеш из URL и отменяем прыжок
+
+                // Закрываем мобильное меню, если клик был в нем
+                burger.classList.remove('active');
+                menu.classList.remove('active');
+                body.classList.remove('no-scroll');
+
+                // Плавный скролл с учетом высоты шапки
+                const headerHeight = document.querySelector('.header').offsetHeight || 0;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 }
 
-// Когда закрываем
-function closeMenu() {
-    lenis.start(); // Запускает обратно
-    document.body.classList.remove('no-scroll');
-}
 
 
 $(document).ready(function () {
@@ -334,7 +366,7 @@ var swiperBase = new Swiper(".about-clinic__swiper-base", {
 
 // Свайпер в модальном окне
 
-var swiperBullet = new Swiper(".modal__swiper-bullet", {
+var swiperBulletModal = new Swiper(".modal__swiper-bullet", {
     spaceBetween: 5,
     slidesPerView: 7,
     direction: "horizontal",
@@ -354,12 +386,10 @@ var swiperBullet = new Swiper(".modal__swiper-bullet", {
     }
 
 });
-var swiperBase = new Swiper(".modal__swiper-base", {
+var swiperBasModal = new Swiper(".modal__swiper-base", {
     spaceBetween: 10,
-
-
     thumbs: {
-        swiper: swiperBullet,
+        swiper: swiperBulletModal,
     },
     // pagination: {
     //     el: '.modal__pagination',
@@ -370,67 +400,27 @@ var swiperBase = new Swiper(".modal__swiper-base", {
 });
 
 // Выпадающий список
-const defaultSelect = () => {
-    const element = document.querySelector('.default');
-    const choices = new Choices(element, {
-        searchEnabled: false, //выключает поиск
-        shouldSort: false, //выключает алфавитный порядок
-    });
+const initChoices = () => {
+    // Находим ВСЕ элементы с классом .default
+    const elements = document.querySelectorAll('.default');
 
-
-};
-
-defaultSelect();
-
-function initChoices(container = document) {
-    container.querySelectorAll('.default').forEach(el => {
-        if (!el.choices) {
+    elements.forEach(el => {
+        // Проверка, чтобы не инициализировать дважды
+        if (!el.classList.contains('is-initialized')) {
             new Choices(el, {
                 searchEnabled: false,
-                shouldSort: false
+                shouldSort: false,
+                itemSelectText: '', // Убирает лишний текст "Press to select"
             });
+            // Помечаем, что селект уже настроен
+            el.classList.add('is-initialized');
         }
     });
-}
+};
 
-const burger = document.querySelector('.header__burger');
-const menu = document.querySelector('.menu-mob');
-const body = document.body;
+// Запускаем при загрузке страницы
+document.addEventListener('DOMContentLoaded', initChoices);
 
-// 1. Логика открытия/закрытия бургера
-if (burger && menu) {
-    burger.addEventListener('click', () => {
-        const isActive = burger.classList.toggle('active');
-        menu.classList.toggle('active');
-        body.classList.toggle('no-scroll', isActive);
-    });
 
-    // 2. Логика клика по ссылкам (включая скролл)
-    const allLinks = document.querySelectorAll('a[href^="#"]');
 
-    allLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
 
-            if (targetElement) {
-                e.preventDefault(); // Убираем хеш из URL и отменяем прыжок
-
-                // Закрываем мобильное меню, если клик был в нем
-                burger.classList.remove('active');
-                menu.classList.remove('active');
-                body.classList.remove('no-scroll');
-
-                // Плавный скролл с учетом высоты шапки
-                const headerHeight = document.querySelector('.header').offsetHeight || 0;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
