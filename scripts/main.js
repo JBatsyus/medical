@@ -346,19 +346,26 @@ var swiperBullet = new Swiper(".modal__swiper-bullet", {
             slidesPerView: 4,
             spaceBetween: 8
         },
-            1024: {
+        1024: {
             direction: 'horizontal',
             slidesPerView: 4, // или сколько вам нужно на десктопе
             spaceBetween: 8
         }
-}
+    }
 
 });
 var swiperBase = new Swiper(".modal__swiper-base", {
     spaceBetween: 10,
+    slidesPerGroup: 4,//для буллетов на адаптиве
 
     thumbs: {
         swiper: swiperBullet,
+    },
+    pagination: {
+        el: '.modal__pagination',
+        clickable: true,
+        // dynamicBullets: true,
+        // dynamicMainBullets: 4,
     },
 });
 
