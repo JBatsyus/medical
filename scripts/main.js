@@ -43,6 +43,8 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
+
+
 // МОБИЛЬНОЕ МЕНЮ
 const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.menu-mob');
@@ -61,6 +63,7 @@ if (burger && menu) {
 
     allLinks.forEach(link => {
         link.addEventListener('click', function (e) {
+            lenis.start();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
@@ -82,6 +85,7 @@ if (burger && menu) {
                     behavior: 'smooth'
                 });
             }
+
         });
     });
 }
@@ -420,7 +424,3 @@ const initChoices = () => {
 
 // Запускаем при загрузке страницы
 document.addEventListener('DOMContentLoaded', initChoices);
-
-
-
-
