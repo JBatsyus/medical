@@ -47,8 +47,9 @@
             flex-direction: column;
             width: 1330px;
             padding: 40px;
-            max-height: calc(96vh - 100px);
-            min-height: 0;
+            max-height: 88vh;
+            min-height: 846px;
+            overflow: hidden;
 
             @include tablet {
                 width: 100%;
@@ -59,6 +60,7 @@
                 border-radius: 0;
                 padding: 24px 16px;
                 max-height: 100vh;
+                min-height: 500px;
             }
         }
     }
@@ -122,9 +124,9 @@
             grid-template-columns: repeat(12, 1fr);
             gap: 20px;
             padding-top: 16px;
-            overflow-y: auto;
+            overflow: hidden;
+
             flex-grow: 1;
-            scrollbar-width: none;
 
             @include tablet {
                 display: flex;
@@ -136,13 +138,20 @@
             @include mobile {
                 padding-top: 16px;
                 gap: 24px;
+                overflow-y: auto; // Весь контент скроллится тут
+                max-height: 100%;
             }
         }
 
         .modal__block {
-            grid-column: 5 span;
+            grid-column: span 5;
+            position: sticky;
+            top: 0;
+            align-self: start;
 
             @include tablet {
+                position: static;
+
                 grid-column: auto;
                 width: 100%;
                 display: flex;
@@ -151,11 +160,26 @@
         }
 
         .modal__text {
-            grid-column: 7 span;
+            grid-column: span 7;
+
+            overflow-y: auto;
+            max-height: 100%;
+            padding-bottom: 24px;
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
             @include tablet {
                 grid-column: auto;
                 width: 100%;
+            }
+
+            @include mobile {
+                overflow-y: visible;
             }
         }
 
@@ -285,7 +309,7 @@
         border: var(--border-gray_light);
         border-radius: 24px;
         overflow: hidden;
-        height: 360px;
+        height: 33.33vh;
         cursor: pointer;
 
         @include tablet {
@@ -333,7 +357,7 @@
             transition: background-color 0.2s;
         }
 
-        .swiper-pagination-bullet:nth-child(n+4) {
+        .swiper-pagination-bullet:nth-child(n + 4) {
             display: none;
         }
 
@@ -350,7 +374,7 @@
         }
 
         @include mobile {
-            display: none;
+            width: 100%;
         }
     }
 
