@@ -160,7 +160,7 @@ const heroSwiper = new Swiper('.hero-slider__swiper', {
     fadeEffect: {
         crossFade: true
     },
-    speed: 1000,
+    // speed: 1000,
     autoplay: {
         delay: 2500,
         disableOnInteraction: false,
