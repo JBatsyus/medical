@@ -10,8 +10,6 @@
     letter-spacing: 0.01em;
     background-color: var(--white);
 
-
-
     &__top {
         padding-block: 24px;
         display: flex;
@@ -21,7 +19,6 @@
         @include laptop {
             display: none;
         }
-
     }
 
     &__cta-btn {
@@ -51,8 +48,6 @@
             display: flex;
             justify-content: space-between;
         }
-
-
     }
 
     &__socials-list {
@@ -78,7 +73,7 @@
         border-radius: 12px;
         width: 48px;
         height: 48px;
-        padding: 17px 14px; // Внутри остается высота 14px (48 - 17*2)
+        padding: 17px 14px;
         background-color: var(--gray_white);
 
         @include tablet {
@@ -87,32 +82,45 @@
 
         span {
             display: block;
-            width: 100%;
+            width: 20px;
             height: 2px;
             background: var(--blue_black);
             border-radius: 3px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: all 0.3s ease;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        span:nth-child(1) {
+            top: 17px;
+        }
+
+        span:nth-child(2) {
+            top: 23px;
+        }
+
+        span:nth-child(3) {
+            top: 29px;
         }
 
         &.active {
             span:nth-child(1) {
-                // Сдвигаем вниз на расстояние между линиями (7px)
-                transform: translateY(6px) rotate(45deg);
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
             }
 
             span:nth-child(2) {
                 opacity: 0;
-                transform: translateX(-10px);
+                transform: translate(-50%, -50%) scale(0);
             }
 
             span:nth-child(3) {
-                // Сдвигаем вверх на 7px и вращаем
-                transform: translateY(-6px) rotate(-45deg);
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(-45deg);
             }
         }
     }
-
-
 
     &__menu {
         border: var(--border-gray_light);
