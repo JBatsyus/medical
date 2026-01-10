@@ -6,6 +6,31 @@
     line-height: 1.1;
     background-color: var(--white);
 
+    @include tablet {
+        &__socials-list.visible-tablet-only {
+            display: flex !important;
+            column-gap: 8px;
+        }
+
+        &__socials-item {
+            height: 32px;
+            width: 32px;
+
+            svg {
+                display: block;
+                color: var(--gray_blue_dark);
+                transition: color 0.2s ease;
+            }
+
+            &:hover svg,
+            &:focus-visible svg {
+                color: var(--blue_hover);
+            }
+        }
+    }
+
+
+
     &__top {
         display: flex;
         flex-wrap: wrap;
@@ -115,6 +140,7 @@
         @include tablet {
             grid-row: 2;
             margin-bottom: 32px;
+            align-items: center;
         }
 
         @include mobile {
@@ -262,7 +288,8 @@
         justify-content: center;
         max-width: max-content;
     }
-    &__cta-btn{
+
+    &__cta-btn {
         max-width: max-content;
     }
 }

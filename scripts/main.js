@@ -255,6 +255,38 @@ const doctorsSwiper = new Swiper('.doctors__swiper', {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    // выпадающий список социальных сетей
+
+   
+    const socialDropdowns = document.querySelectorAll('.social-dropdown');
+
+    socialDropdowns.forEach(dropdown => {
+       const toggle = dropdown.querySelector('.social-dropdown__toggle');
+
+        toggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+
+            socialDropdowns.forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('open');
+                    otherDropdown.querySelector('.social-dropdown__toggle').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            const isOpen = dropdown.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+    });
+
+   
+    document.addEventListener('click', () => {
+        socialDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('open');
+            const toggle = dropdown.querySelector('.social-dropdown__toggle');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
 
     const filterButtons = document.querySelectorAll('.filter-btn');
     const serviceItems = document.querySelectorAll('.service-item');
