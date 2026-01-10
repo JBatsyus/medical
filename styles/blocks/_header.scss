@@ -51,7 +51,7 @@
         }
     }
 
-   
+
 
     &__logo {
         @include mobile {
@@ -66,7 +66,7 @@
         justify-content: space-between;
         cursor: pointer;
         position: relative;
-        z-index: 101;
+        z-index: 100;
         border: var(--border-gray_light);
         border-radius: 12px;
         width: 48px;
@@ -74,7 +74,7 @@
         padding: 17px 14px;
         background-color: var(--gray_white);
 
-        @include tablet {
+        @include laptop {
             display: flex;
         }
 

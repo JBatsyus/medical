@@ -1619,7 +1619,7 @@
     <!-- Модальное окно формы-->
     <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+            <div class="modal__container " role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
                 <header class="modal__header">
                     <h2 id="modal-1-title" class="modal__title">Оставьте заявку</h2>
                     <button type="button" class="modal__close " aria-label="Закрыть" data-micromodal-close></button>
@@ -1683,6 +1683,26 @@
                                 заявку</button>
                         </div>
                     </form>
+                    <div class="form-section__success-message" style="display: none;">
+                        <div class="form-section__success-icon">
+                            <img src="./icons/done.svg" alt="Успех">
+                        </div>
+                        <h2 class="form-section__success-title">Заявка успешно <br> отправлена</h2>
+                        <button type="button" class="form-section__continue-button button button--primary"
+                            data-micromodal-close>Продолжить</button>
+                    </div>
+                    <!-- Сообщение об ошибке -->
+                    <div class="form-section__error-message" style="display: none;">
+                        <div class="form-section__error-icon">
+                            <img src="./icons/error-cross.svg" alt="Ошибка">
+                        </div>
+                        <h2 class="form-section__error-title">Произошла ошибка</h2>
+                        <button type="button" class="form-section__continue-button button button--primary"
+                            data-micromodal-close>
+                            Продолжить
+                        </button>
+                    </div>
+
 
                 </div>
             </div>
@@ -1910,11 +1930,48 @@
                         document.documentElement.style.removeProperty('overflow');
                         document.body.style.removeProperty('overflow');
                     }, 100);
+
+                    // очищаем модалку
+                    // const container = modal.querySelector('.modal__container');
+                    // const form = modal.querySelector('form');
+                    // const success = modal.querySelector('.form-section__success-message');
+
+                    // if (container.classList.contains('modal-success')) {
+                    //     container.classList.remove('modal-success');
+                    //     form.style.display = 'grid';
+                    //     success.style.display = 'none';
+                    //     form.reset(); // Очистить поля
+                    // }
                 }
+
+
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm2');
+            const modalContainer = contactForm.closest('.modal__container');
+            const successMessage = modalContainer.querySelector('.form-section__success-message');
 
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Предотвращаем перезагрузку страницы
+
+                // Здесь обычно идет fetch запрос к серверу
+                // Имитируем успешную отправку:
+
+                // 1. Скрываем форму
+                contactForm.style.display = 'none';
+
+                // 2. Показываем сообщение об успехе
+                successMessage.style.display = 'flex'; // или 'block', в зависимости от верстки
+                // 3. Добавляем класс на контейнер
+                modalContainer.classList.add('modal-success');
+            });
+
+
+        });
+    </script>
 </body>
 
 </html>
