@@ -1132,7 +1132,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div  class="swiper about-clinic__swiper-bullet">
+                        <div class="swiper about-clinic__swiper-bullet">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="about-clinic__item-bullet">
@@ -1213,7 +1213,7 @@
             </div>
         </section>
         <!-- О КЛИНИКЕ END -->
-  
+
         <!-- FAQ START -->
         <section class="faq section" id="faq">
             <div class="container">
@@ -1386,7 +1386,7 @@
                             <div class="form-section__field form-section__field--required">
                                 <label for="direction" class="form-section__label">Направление *</label>
                                 <select id="direction" name="direction" class="form-section__select default" required>
-                                    <option value="" >Выберите направление</option>
+                                    <option value="">Выберите направление</option>
                                     <option value="Хирургия">Хирургия</option>
                                     <option value="терапия">Терапия</option>
                                     <option value="стоматология">Стоматология</option>
@@ -1657,7 +1657,7 @@
                         <div class="form-section__field form-section__field--required">
                             <label for="direction2" class="form-section__label">Направление *</label>
                             <select id="direction2" name="direction" class="form-section__select default" required>
-                                <option value="" >Выберите направление</option>
+                                <option value="">Выберите направление</option>
                                 <option value="Хирургия">Хирургия</option>
                                 <option value="терапия">Терапия</option>
                                 <option value="стоматология">Стоматология</option>
@@ -1776,7 +1776,7 @@
                                 <!-- Пагинация убрала пагинацию - на подобном слайдере ее нет-->
                                 <!-- <div class="modal__pagination swiper-pagination visible-tablet-only "></div> -->
                             </div>
-                            <div  class="swiper modal__swiper-bullet">
+                            <div class="swiper modal__swiper-bullet">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="modal__item-bullet">
@@ -1888,8 +1888,9 @@
                                 <p class="modal__cta-desc">Оставьте заявку и&nbsp;мы&nbsp;поможем в&nbsp;решении всех
                                     ваших вопросов
                                 </p>
-                                <a href="javascript:void(0);" class="modal__cta-btn button button--primary" data-micromodal-trigger="modal-1" data-title="Оставить заявку"
-                                data-btn="Оставить заявку">Оставить
+                                <a href="javascript:void(0);" class="modal__cta-btn button button--primary"
+                                    data-micromodal-trigger="modal-1" data-title="Оставить заявку"
+                                    data-btn="Оставить заявку">Оставить
                                     заявку</a>
                             </div>
                         </div>
@@ -1900,18 +1901,21 @@
         </div>
     </div>
     <!-- JS -->
-    <script src="./libs/plugins/swiper-bundle.min.js"></script>
-    <script src="./libs/plugins/jquery.min.js"></script>
-    <script src="./libs/plugins/jquery.event.move.js"></script>
-    <script src="./libs/plugins/jquery.twentytwenty.js"></script>
-    <script src="./libs/plugins/choices.min.js"></script>
-    <script src="./libs/plugins/lenis.min.js"></script>
-    <script src="./libs/plugins/jquery.fancybox.min.js"></script>
 
-    <!-- Main script -->
-    <script src="./scripts/main.js"></script>
+    <!-- Библиотеки -->
+    <script src="./libs/plugins/swiper-bundle.min.js" defer></script>
+    <script src="./libs/plugins/jquery.min.js" defer></script>
+    <script src="./libs/plugins/jquery.event.move.js" defer></script>
+    <script src="./libs/plugins/jquery.twentytwenty.js" defer></script>
+    <script src="./libs/plugins/choices.min.js" defer></script>
+    <script src="./libs/plugins/lenis.min.js" defer></script>
+    <script src="./libs/plugins/jquery.fancybox.min.js" defer></script>
 
-    <script src="https://unpkg.com/micromodal@0.4.10/dist/micromodal.min.js"></script>
+    <!--main.js -->
+    <script src="./scripts/main.js" defer></script>
+
+    <!-- Micromodal -->
+    <script src="https://unpkg.com/micromodal@0.4.10/dist/micromodal.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             MicroModal.init({
