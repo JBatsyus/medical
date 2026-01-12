@@ -1,6 +1,18 @@
 @use "../helpers"as *;
 
 /*---------МОДАЛКА (START)--------*/
+.modal__overlay {
+    z-index: 100;
+}
+
+.modal__overlay.is-open {
+    z-index: 100;
+}
+
+/* Вторая модалка — всегда поверх */
+#modal-1 .modal__overlay {
+    z-index: 101 !important;
+}
 
 .modal {
     &__overlay {
@@ -71,7 +83,8 @@
             }
         }
 
-        &.modal-success, &.modal-error {
+        &.modal-success,
+        &.modal-error {
 
             border-radius: 16px;
             padding: 24px;
@@ -96,11 +109,13 @@
 
     }
 
-    .modal-success &__title, .modal-error &__title{
+    .modal-success &__title,
+    .modal-error &__title {
         display: none;
     }
 
-    .modal-success &__header, .modal-error &__header{
+    .modal-success &__header,
+    .modal-error &__header {
         margin-bottom: 16px;
     }
 
@@ -257,6 +272,10 @@
             font-size: 18px;
             line-height: 1.6;
 
+            @include tablet {
+                margin-bottom: 32px;
+            }
+
             strong {
                 font-weight: 600;
                 color: var(--blue_dark);
@@ -288,6 +307,7 @@
                         color: var(--color-secondary);
                     }
                 }
+
             }
 
             .important-text {
@@ -606,7 +626,8 @@
 }
 
 // Окна ответов
-.form-section__success-message, .form-section__error-message {
+.form-section__success-message,
+.form-section__error-message {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -614,7 +635,8 @@
     align-items: center;
 }
 
-.form-section__success-icon, .form-section__error-icon {
+.form-section__success-icon,
+.form-section__error-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -623,7 +645,8 @@
 
 
 
-.form-section__success-title, .form-section__error-title {
+.form-section__success-title,
+.form-section__error-title {
     font-weight: 700;
     font-size: 32px;
     line-height: 1.2;
