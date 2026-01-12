@@ -154,6 +154,9 @@ $(document).ready(function () {
         beforeAfterSwiper.allowTouchMove = true;
     });
 });
+
+
+
 const heroSwiper = new Swiper('.hero-slider__swiper', {
     loop: true,
     effect: "fade",
