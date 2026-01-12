@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEDLAND</title>
-    <link rel="stylesheet" href="./libs/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="./libs/plugins/twentytwenty.css">
-    <link rel="stylesheet" href="./libs/plugins/choices.min.css">
-    <link rel="stylesheet" href="./libs/plugins/lenis.css">
-    <link rel="stylesheet" href="./libs/plugins/jquery.fancybox.min.css">
-
-    <link rel="stylesheet" href="./styles/main.css">
+<!-- Preload + асинхронная загрузка стилей -->
+<link rel="preload" href="./libs/plugins/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="./libs/plugins/twentytwenty.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="./libs/plugins/choices.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="./libs/plugins/lenis.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="./libs/plugins/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="./styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 </head>
 
@@ -1049,7 +1049,7 @@
                         <div class="swiper-slide">
                             <div class="before-after__card">
                                 <div class="before-after__component twentytwenty-container">
-                                    <img src="./images/before-after/1.webp" alt="Before Image" class="before">
+                                    <img src="./images/before-after/1.png" alt="Before Image" class="before">
                                     <img src="./images/before-after/2.png" alt="After Image" class="after">
                                 </div>
                                 <div class="before-after__description">Ровные зубы после лечения на брекетах</div>
