@@ -10,6 +10,8 @@
     letter-spacing: 0.01em;
     background-color: var(--white);
 
+
+
     &__top {
         padding-block: 24px;
         display: flex;
@@ -148,6 +150,67 @@
 
         &:hover {
             text-shadow: 0 0 0.65px var(--blue_black), 0 0 0.65px var(--blue_black);
+        }
+    }
+}
+
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--white);
+
+    &__top {
+        transition: all 0.4s ease;
+        overflow: hidden;
+        max-height: 100px;
+    }
+
+    &__bottom {
+        transition: all 0.4s ease;
+        padding-bottom: 20px;
+    }
+
+    // Состояние при скролле
+    &--scrolled {
+        top: 20px;
+        background-color: transparent;
+        width: 100%;
+
+
+
+        .header__top {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .header__bottom {
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+
+        }
+
+        .container {
+            border-radius: 24px;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header__menu {
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
         }
     }
 }

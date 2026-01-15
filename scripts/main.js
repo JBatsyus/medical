@@ -1,3 +1,7 @@
+
+
+
+
 const lenis = new Lenis({
     // Длительность анимации прокрутки (в секундах).
     // Чем больше значение — тем медленнее и плавнее скролл.
@@ -90,9 +94,19 @@ if (burger && menu) {
     });
 }
 
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    
+    if (window.scrollY > 50) {
+        header.classList.add('header--scrolled');
+    } else {
+        header.classList.remove('header--scrolled');
+    }
+});
 
 
 $(document).ready(function () {
+    
 
     var beforeAfterSwiper = new Swiper('.before-after__swiper', {
         loop: true,
