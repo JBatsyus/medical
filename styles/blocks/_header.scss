@@ -31,7 +31,9 @@
 
     &__cta-btn {
         @include laptop {
-            display: none;
+            height: 48px;
+            font-size: 14px;
+            margin-left: auto;
         }
     }
 
@@ -179,8 +181,6 @@
         .header__bottom {
             padding-top: 10px;
             padding-bottom: 10px;
-
-
         }
 
         .container {
