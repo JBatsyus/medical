@@ -2,7 +2,11 @@
 /*---------- HERO (START)---------------------*/
 
 .hero {
-    padding-top: 48px;
+    padding-top: 170px;
+    @include laptop {
+         padding-top: 100px;
+    }
+
 
     &__content {
         display: flex;

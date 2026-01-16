@@ -2,9 +2,13 @@
 
 /*---------HEADER (START)--------*/
 .header {
-    // position: sticky;
-    // z-index: 100;
-    // top: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--white);
     font-size: 16px;
     line-height: 1;
     letter-spacing: 0.01em;
@@ -17,6 +21,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: all 0.4s ease;
+        overflow: hidden;
 
         @include laptop {
             display: none;
@@ -45,6 +51,7 @@
         grid-template-columns: 213px 1fr 205px;
         column-gap: 2.8vw;
         align-items: flex-end;
+        transition: all 0.4s ease;
 
         @include laptop {
             padding-top: 30px;
@@ -152,29 +159,6 @@
             text-shadow: 0 0 0.65px var(--blue_black), 0 0 0.65px var(--blue_black);
         }
     }
-}
-
-
-
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: var(--white);
-
-    &__top {
-        transition: all 0.4s ease;
-        overflow: hidden;
-        max-height: 100px;
-    }
-
-    &__bottom {
-        transition: all 0.4s ease;
-        padding-bottom: 20px;
-    }
 
     // Состояние при скролле
     &--scrolled {
@@ -214,6 +198,8 @@
         }
     }
 }
+
+
 
 
 
