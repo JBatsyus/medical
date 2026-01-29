@@ -408,28 +408,44 @@
         }
     }
 
-    // Пагинация
-    &__pagination {
-        margin-top: 12px;
-        padding: 0 20px;
+    // Пагинация (на подобном слайдере ее нет, удалила)
+    // &__pagination {
+    //     margin-top: 12px;
+    //     padding: 0 20px;
 
-        .swiper-pagination-bullet {
-            border-radius: 4px;
-            width: 24px;
-            height: 4px;
-            background-color: var(--white);
-            opacity: 1;
-            transition: background-color 0.2s;
-        }
+    //     .swiper-pagination-bullet {
+    //         border-radius: 4px;
+    //         width: 24px;
+    //         height: 4px;
+    //         background-color: var(--white);
+    //         opacity: 1;
+    //         transition: background-color 0.2s;
+    //     }
 
-        .swiper-pagination-bullet:nth-child(n + 4) {
-            display: none;
-        }
+    //     .swiper-pagination-bullet:nth-child(n + 4) {
+    //         display: none;
+    //     }
 
-        .swiper-pagination-bullet.swiper-pagination-bullet-active {
-            background-color: var(--blue_black);
-        }
-    }
+    //     .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    //         background-color: var(--blue_black);
+    //     }
+    //       /* Скрыть буллеты, которые не являются активными или ближайшими соседями */
+    //     .swiper-pagination-bullet {
+    //         opacity: 0 !important;
+    //         transition: opacity 0.4s;
+    //     }
+
+    //     /* Показать активный буллет */
+    //     .swiper-pagination-bullet-active {
+    //         opacity: 1 !important;
+    //     }
+
+    //     /* Показать ближайшие соседние буллеты (активный-1, активный+1) */
+    //     .swiper-pagination-bullet-active-prev,
+    //     .swiper-pagination-bullet-active-next {
+    //         opacity: 1 !important;
+    //     }
+    // }
 
     // Оставить заявку
 

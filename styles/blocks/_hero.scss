@@ -3,8 +3,9 @@
 
 .hero {
     padding-top: 170px;
+
     @include laptop {
-         padding-top: 100px;
+        padding-top: 100px;
     }
 
 
@@ -307,6 +308,22 @@
 
         .swiper-pagination-bullet.swiper-pagination-bullet-active {
             background-color: var(--white);
+        }
+          /* Скрыть буллеты, которые не являются активными или ближайшими соседями */
+        .swiper-pagination-bullet {
+            opacity: 0 !important;
+            transition: opacity 0.4s;
+        }
+
+        /* Показать активный буллет */
+        .swiper-pagination-bullet-active {
+            opacity: 1 !important;
+        }
+
+        /* Показать ближайшие соседние буллеты (активный-1, активный+1) */
+        .swiper-pagination-bullet-active-prev,
+        .swiper-pagination-bullet-active-next {
+            opacity: 1 !important;
         }
     }
 }

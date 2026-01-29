@@ -1,7 +1,3 @@
-
-
-
-
 const lenis = new Lenis({
     // Длительность анимации прокрутки (в секундах).
     // Чем больше значение — тем медленнее и плавнее скролл.
@@ -46,7 +42,22 @@ function raf(time) {
     requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
+// Кнопка "наверх" с интеграцией Lenis
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+if (scrollToTopBtn) {
+    const updateButtonVisibility = () => {
+        const shouldShow = lenis.scroll > 300 || window.scrollY > 300;
+        scrollToTopBtn.classList.toggle('visible', shouldShow);
+    };
 
+    lenis.on('scroll', updateButtonVisibility);
+    updateButtonVisibility();
+
+    scrollToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        lenis.scrollTo(0);
+    });
+}
 
 
 // МОБИЛЬНОЕ МЕНЮ
@@ -94,9 +105,9 @@ if (burger && menu) {
     });
 }
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.querySelector('.header');
-    
+
     if (window.scrollY > 50) {
         header.classList.add('header--scrolled');
     } else {
@@ -106,12 +117,12 @@ window.addEventListener('scroll', function() {
 
 
 $(document).ready(function () {
-    
+
 
     var beforeAfterSwiper = new Swiper('.before-after__swiper', {
         loop: true,
         speed: 600,
-        slidesPerView: 1.1,
+        slidesPerView: 1.2,
         spaceBetween: 16,
         // Важно: отключаем стандартную блокировку касаний, 
         // чтобы TwentyTwenty мог перехватить событие
@@ -139,6 +150,7 @@ $(document).ready(function () {
 
         pagination: {
             el: '.before-after__pagination',
+             dynamicBullets: true,
             clickable: true,
         },
 
@@ -189,6 +201,7 @@ const heroSwiper = new Swiper('.hero-slider__swiper', {
     },
     pagination: {
         el: '.hero-slider__pagination',
+      dynamicBullets: true,
         clickable: true,
     },
 });
@@ -196,7 +209,7 @@ const heroSwiper = new Swiper('.hero-slider__swiper', {
 const specialOffersSwiper = new Swiper('.special-offers__swiper', {
     loop: true,
     speed: 600,
-    slidesPerView: 1,
+    slidesPerView: 1.2,
     spaceBetween: 20,
 
     // Адаптивность
@@ -225,6 +238,7 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
     },
     pagination: {
         el: '.special-offers__pagination',
+        dynamicBullets: true,
         clickable: true,
         type: 'bullets',
         bulletClass: 'swiper-pagination-bullet',
@@ -236,7 +250,7 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
 const doctorsSwiper = new Swiper('.doctors__swiper', {
     loop: true,
     speed: 600,
-    slidesPerView: 1,
+    slidesPerView: 1.2,
     spaceBetween: 20,
 
     breakpoints: {
@@ -265,6 +279,7 @@ const doctorsSwiper = new Swiper('.doctors__swiper', {
 
     pagination: {
         el: '.doctors__pagination',
+        dynamicBullets: true,
         clickable: true,
     },
 });
@@ -272,13 +287,59 @@ const doctorsSwiper = new Swiper('.doctors__swiper', {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    MicroModal.init({
+        awaitOpenAnimation: true,
+        awaitCloseAnimation: true,
+        onShow: (modal, trigger) => {
+            // Останавливаем Lenis (с проверкой на существование)
+            if (window.lenis) window.lenis.stop();
+            else if (typeof lenis !== 'undefined') lenis.stop();
+
+            if (trigger) {
+                const titleText = trigger.getAttribute('data-title');
+                const btnText = trigger.getAttribute('data-btn');
+                const modalTitle = modal.querySelector('.modal__title');
+                const modalSubmitBtn = modal.querySelector('.form-section__submit');
+
+                if (titleText && modalTitle) modalTitle.textContent = titleText;
+                if (btnText && modalSubmitBtn) modalSubmitBtn.textContent = btnText;
+            }
+            initChoices(modal);
+        },
+        onClose: (modal) => {
+            // 1. Запускаем Lenis обратно
+            if (window.lenis) window.lenis.start();
+            else if (typeof lenis !== 'undefined') lenis.start();
+
+            // 2. Страховка от CSS-блокировки (удаляем overflow: hidden)
+            // Делаем небольшую задержку, чтобы анимация закрытия успела завершиться
+            setTimeout(() => {
+                document.documentElement.style.removeProperty('overflow');
+                document.body.style.removeProperty('overflow');
+            }, 100);
+
+            // очищаем модалку
+            // const container = modal.querySelector('.modal__container');
+            // const form = modal.querySelector('form');
+            // const success = modal.querySelector('.form-section__success-message');
+
+            // if (container.classList.contains('modal-success')) {
+            //     container.classList.remove('modal-success');
+            //     form.style.display = 'grid';
+            //     success.style.display = 'none';
+            //     form.reset(); // Очистить поля
+            // }
+        }
+
+
+    });
     // выпадающий список социальных сетей
 
-   
+
     const socialDropdowns = document.querySelectorAll('.social-dropdown');
 
     socialDropdowns.forEach(dropdown => {
-       const toggle = dropdown.querySelector('.social-dropdown__toggle');
+        const toggle = dropdown.querySelector('.social-dropdown__toggle');
 
         toggle.addEventListener('click', (event) => {
             event.stopPropagation();
@@ -295,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-   
+
     document.addEventListener('click', () => {
         socialDropdowns.forEach(dropdown => {
             dropdown.classList.remove('open');
@@ -318,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentSwiper = new Swiper('.services__swiper', {
             loop: true,
             speed: 600,
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 20,
             // pagination: {
             //     el: '.services__pagination',
@@ -473,3 +534,7 @@ const initChoices = () => {
 
 // Запускаем при загрузке страницы
 document.addEventListener('DOMContentLoaded', initChoices);
+/// mask
+$(function () {
+    $(".input-phone").mask("+7 (999) 999 - 99 - 99");
+});

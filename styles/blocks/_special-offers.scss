@@ -236,6 +236,7 @@
         margin-top: 12px;
         padding: 0 20px;
 
+
         .swiper-pagination-bullet {
             border-radius: 4px;
             width: 24px;
@@ -247,7 +248,38 @@
         .swiper-pagination-bullet.swiper-pagination-bullet-active {
             background-color: var(--color-primary);
         }
+
+        .swiper-pagination-bullets-dynamic {
+            overflow: hidden;
+            font-size: 0;
+        }
+
+        /* Скрыть буллеты, которые не являются активными или ближайшими соседями */
+        .swiper-pagination-bullet {
+            opacity: 0 !important;
+            transition: opacity 0.4s;
+        }
+
+        /* Показать активный буллет */
+        .swiper-pagination-bullet-active {
+            opacity: 1 !important;
+        }
+
+        /* Показать ближайшие соседние буллеты (активный-1, активный+1) */
+        .swiper-pagination-bullet-active-prev,
+        .swiper-pagination-bullet-active-next {
+            opacity: 1 !important;
+        }
+
     }
 }
+
+
+// .swiper-pagination-bullet{
+// transform : scale(1) !important;
+// }
+// .swiper-pagination-bullet:not(.swiper-pagination-bullet-active-main){
+//   opacity: 0;
+// }
 
 /*---------- SPECIAL OFFERS (END)---------------------*/
