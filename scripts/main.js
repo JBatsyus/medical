@@ -116,9 +116,7 @@ window.addEventListener('scroll', function () {
 });
 
 
-$(document).ready(function () {
-
-
+document.addEventListener('DOMContentLoaded', function () {
     var beforeAfterSwiper = new Swiper('.before-after__swiper', {
         loop: true,
         speed: 600,
@@ -150,7 +148,7 @@ $(document).ready(function () {
 
         pagination: {
             el: '.before-after__pagination',
-             dynamicBullets: true,
+            dynamicBullets: true,
             clickable: true,
         },
 
@@ -179,114 +177,7 @@ $(document).ready(function () {
     $(document).on("mouseup touchend", function () {
         beforeAfterSwiper.allowTouchMove = true;
     });
-});
 
-
-
-const heroSwiper = new Swiper('.hero-slider__swiper', {
-    loop: true,
-    effect: "fade",
-    fadeEffect: {
-        crossFade: true
-    },
-    // speed: 1000,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-    },
-    navigation: {
-        prevEl: '.slider__nav--prev',
-        nextEl: '.slider__nav--next',
-    },
-    pagination: {
-        el: '.hero-slider__pagination',
-      dynamicBullets: true,
-        clickable: true,
-    },
-});
-
-const specialOffersSwiper = new Swiper('.special-offers__swiper', {
-    loop: true,
-    speed: 600,
-    slidesPerView: 1.2,
-    spaceBetween: 20,
-
-    // Адаптивность
-    breakpoints: {
-        576: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        992: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-        },
-        1200: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-    },
-
-    navigation: {
-        prevEl: '.special-offers__nav--prev',
-        nextEl: '.special-offers__nav--next',
-    },
-    pagination: {
-        el: '.special-offers__pagination',
-        dynamicBullets: true,
-        clickable: true,
-        type: 'bullets',
-        bulletClass: 'swiper-pagination-bullet',
-        bulletActiveClass: 'swiper-pagination-bullet-active',
-    },
-
-});
-
-const doctorsSwiper = new Swiper('.doctors__swiper', {
-    loop: true,
-    speed: 600,
-    slidesPerView: 1.2,
-    spaceBetween: 20,
-
-    breakpoints: {
-        576: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        992: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-        },
-        1200: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-    },
-
-    navigation: {
-        prevEl: '.doctors__nav--prev',
-        nextEl: '.doctors__nav--next',
-    },
-
-    pagination: {
-        el: '.doctors__pagination',
-        dynamicBullets: true,
-        clickable: true,
-    },
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
     MicroModal.init({
         awaitOpenAnimation: true,
         awaitCloseAnimation: true,
@@ -452,6 +343,113 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
+
+const heroSwiper = new Swiper('.hero-slider__swiper', {
+    loop: true,
+    effect: "fade",
+    fadeEffect: {
+        crossFade: true
+    },
+    // speed: 1000,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+    },
+    navigation: {
+        prevEl: '.slider__nav--prev',
+        nextEl: '.slider__nav--next',
+    },
+    pagination: {
+        el: '.hero-slider__pagination',
+        dynamicBullets: true,
+        clickable: true,
+    },
+});
+
+const specialOffersSwiper = new Swiper('.special-offers__swiper', {
+    loop: true,
+    speed: 600,
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+
+    // Адаптивность
+    breakpoints: {
+        576: {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+
+    navigation: {
+        prevEl: '.special-offers__nav--prev',
+        nextEl: '.special-offers__nav--next',
+    },
+    pagination: {
+        el: '.special-offers__pagination',
+        dynamicBullets: true,
+        clickable: true,
+        type: 'bullets',
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
+    },
+
+});
+
+const doctorsSwiper = new Swiper('.doctors__swiper', {
+    loop: true,
+    speed: 600,
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+
+    breakpoints: {
+        576: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+
+    navigation: {
+        prevEl: '.doctors__nav--prev',
+        nextEl: '.doctors__nav--next',
+    },
+
+    pagination: {
+        el: '.doctors__pagination',
+        dynamicBullets: true,
+        clickable: true,
+    },
+});
+
+
+
+
+
 // Свайпер в секции О нашей клинике
 var swiperBullet = new Swiper(".about-clinic__swiper-bullet", {
     spaceBetween: 16,
@@ -500,7 +498,7 @@ var swiperBulletModal = new Swiper(".modal__swiper-bullet", {
     }
 
 });
-var swiperBasModal = new Swiper(".modal__swiper-base", {
+var swiperBaseModal = new Swiper(".modal__swiper-base", {
     spaceBetween: 10,
     thumbs: {
         swiper: swiperBulletModal,
