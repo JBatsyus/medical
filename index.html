@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEDLAND</title>
-    <!-- <link rel="stylesheet" href="./libs/plugins/swiper-bundle.min.css"> -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./libs/plugins/swiper-bundle.min.css">
     <link rel="stylesheet" href="./libs/plugins/twentytwenty.css">
     <link rel="stylesheet" href="./libs/plugins/choices.min.css">
     <link rel="stylesheet" href="./libs/plugins/lenis.css">
@@ -996,7 +995,8 @@
                             организации оказания медицинских услуг населению.
                         </p>
                         <div class="banner_documents__actions ">
-                            <a href="./documents/stub.pdf" class="banner_documents__btn button button--primary "download="Документы">Скачать
+                            <a href="./documents/stub.pdf" class="banner_documents__btn button button--primary "
+                                download="Документы">Скачать
                                 документы</a>
                             <button type="button" class="banner_documents__btn button button--accent "
                                 data-title="Обратный звонок" data-btn="Отправить"
@@ -1616,8 +1616,10 @@
 
             <div class="footer__bottom">
                 <a href="" class="footer__copyright">©MEDLAND 2025</a>
-                <a href="./documents/stub.pdf" class="footer__policy" download ="Политика конфиденциальности">Политика конфиденциальности</a>
-                <a href="./documents/stub.pdf" class="footer__data-policy" download="Политика обработки данных">Политика обработки данных</a>
+                <a href="./documents/stub.pdf" class="footer__policy" download="Политика конфиденциальности">Политика
+                    конфиденциальности</a>
+                <a href="./documents/stub.pdf" class="footer__data-policy" download="Политика обработки данных">Политика
+                    обработки данных</a>
                 <a href="https://vbi.ru/" class="footer__dev" target="_blank">Разработано VBI</a>
             </div>
 
@@ -1625,12 +1627,12 @@
     </footer>
     <!--— FOOTER END -->
     <button class="scroll-to-top" aria-label="Наверх" title="Наверх">
-    <svg class="scroll-to-top__icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-    </svg>
-</button>
+        <svg class="scroll-to-top__icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
     <!-- Кнопка открытия -->
     <button class="btn btn--primary" data-micromodal-trigger="modal">
         Подробнее о МРТ
@@ -1735,10 +1737,11 @@
             <div class="modal__container modal-service " role="dialog" aria-modal="true" aria-labelledby="modal-title"
                 data-lenis-prevent>
                 <div style="display: flex;align-items: center;">
-                <a href="javascript:void(0);" class="modal__cta-btn-head visible-mobile-only button button--primary"
-                    data-micromodal-trigger="modal-1" data-title="Оставить заявку" data-btn="Оставить заявку">Оставить
-                    заявку</a>
-                <button type="button" class="modal__close " aria-label="Закрыть" data-micromodal-close></button>
+                    <a href="javascript:void(0);" class="modal__cta-btn-head visible-mobile-only button button--primary"
+                        data-micromodal-trigger="modal-1" data-title="Оставить заявку"
+                        data-btn="Оставить заявку">Оставить
+                        заявку</a>
+                    <button type="button" class="modal__close " aria-label="Закрыть" data-micromodal-close></button>
                 </div>
                 <div class="modal__content ">
                     <div class="modal__block">
@@ -1917,8 +1920,7 @@
     <!-- JS -->
 
     <!-- Библиотеки -->
-    <!-- <script src="./libs/plugins/swiper-bundle.min.js"></script> -->
-     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./libs/plugins/swiper-bundle.min.js"></script>
     <script src="./libs/plugins/jquery.min.js"></script>
     <script src="./libs/plugins/jquery.event.move.js"></script>
     <script src="./libs/plugins/jquery.twentytwenty.js"></script>
@@ -1941,16 +1943,10 @@
 
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault(); // Предотвращаем перезагрузку страницы
-
-                // Здесь обычно идет fetch запрос к серверу
                 // Имитируем успешную отправку:
 
-                // 1. Скрываем форму
                 contactForm.style.display = 'none';
-
-                // 2. Показываем сообщение об успехе
-                successMessage.style.display = 'flex'; // или 'block', в зависимости от верстки
-                // 3. Добавляем класс на контейнер
+                successMessage.style.display = 'flex';
                 modalContainer.classList.add('modal-success');
             });
 
