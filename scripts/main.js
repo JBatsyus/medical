@@ -93,7 +93,7 @@ if (burger && menu) {
                 // Плавный скролл с учетом высоты шапки
                 const headerHeight = document.querySelector('.header').offsetHeight || 0;
                 const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                const offsetPosition = elementPosition + window.pageYOffset - (headerHeight + 20);
 
                 window.scrollTo({
                     top: offsetPosition,
