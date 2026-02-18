@@ -60,6 +60,14 @@ html.no-scroll {
         display: none !important;
     }
 }
+// Показывать на ноуте
+.visible-laptop-s-only {
+    display: none !important;
+
+    @include laptop-s {
+        display: block !important;
+    }
+}
 
 .visible-tablet {
     @include tablet {

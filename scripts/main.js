@@ -60,6 +60,8 @@ if (scrollToTopBtn) {
 }
 
 
+
+
 // МОБИЛЬНОЕ МЕНЮ
 const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.menu-mob');
@@ -270,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentSwiper = new Swiper('.services__swiper', {
             loop: true,
             speed: 600,
-            slidesPerView: 1.2,
+            slidesPerView: 1,
             spaceBetween: 20,
             // pagination: {
             //     el: '.services__pagination',
@@ -281,12 +283,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextEl: '.services__nav--next',
             },
             breakpoints: {
-                576: {
-                    slidesPerView: 2,
-                    spaceBetween: 16
-                },
+                // 576: {
+                //     slidesPerView: 2.1,
+                //     spaceBetween: 16
+                // },
                 768: {
-                    slidesPerView: 2,
+                    slidesPerView: 2.1,
                     spaceBetween: 16
                 },
                 992: {
@@ -371,13 +373,13 @@ const heroSwiper = new Swiper('.hero-slider__swiper', {
 const specialOffersSwiper = new Swiper('.special-offers__swiper', {
     loop: true,
     speed: 600,
-    slidesPerView: 1.2,
+    slidesPerView: 1,
     spaceBetween: 20,
 
     // Адаптивность
     breakpoints: {
         576: {
-            slidesPerView: 1.5,
+            slidesPerView: 1.1,
             spaceBetween: 20,
         },
         768: {
@@ -412,7 +414,7 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
 const doctorsSwiper = new Swiper('.doctors__swiper', {
     loop: true,
     speed: 600,
-    slidesPerView: 1.2,
+    slidesPerView: 1.1,
     spaceBetween: 20,
 
     breakpoints: {

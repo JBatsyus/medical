@@ -27,18 +27,25 @@
     &__filters {
         display: flex;
         gap: 12px;
-        flex-wrap: wrap;
+
         margin-bottom: 32px;
 
         @include tablet {
+
             gap: 8px;
             margin-bottom: 24px;
+        }
+
+        @include mobile {
+            flex-wrap: wrap;
         }
     }
 
     .filter-btn {
         border-radius: 16px;
         padding: 10px 24px;
+        min-width: max-content;
+        max-width: max-content;
 
         @include tablet {
             border-radius: 14px;
@@ -60,6 +67,11 @@
         .swiper-wrapper {
             display: flex;
             align-items: stretch;
+
+            @include mobile {
+                flex-direction: column;
+                row-gap: 12px;
+            }
         }
 
         .swiper-slide {
@@ -159,11 +171,17 @@
             font-size: 16px;
             margin-bottom: 20px;
             max-width: 205px;
+
         }
 
         @include mobile {
             margin-bottom: 24px;
+            max-width: 100%;
         }
+        @include mobile-m{
+             max-width: 205px;
+        }
+
     }
 
     &__price {

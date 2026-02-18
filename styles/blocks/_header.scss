@@ -29,17 +29,37 @@
         }
     }
 
-    &__cta-btn {
+    &__cta-btn-s {
         @include laptop {
             height: 48px;
-            font-size: 14px;
             margin-left: auto;
+            min-width: max-content;
+            padding: 14px;
+            border: 1px solid var(--gray_light);
+            border-radius: 12px;
+            background: var(--gray_white);
         }
     }
+
 
     &__contacts {
         display: flex;
         gap: 64px;
+
+        .accessibility-toggle {
+            padding: 0;
+            background-color: transparent;
+
+            span {
+                font-weight: 500;
+                font-size: 16px;
+
+                line-height: 1.1;
+                letter-spacing: 0.01em;
+                text-align: center;
+                color: var(--blue_black);
+            }
+        }
     }
 
     &__actions {
@@ -52,13 +72,29 @@
         display: grid;
         grid-template-columns: 213px 1fr 205px;
         column-gap: 2.8vw;
-        align-items: flex-end;
+        align-items: center;
         transition: all 0.4s ease;
 
         @include laptop {
             padding-top: 30px;
             display: flex;
             justify-content: space-between;
+            column-gap: 1rem;
+        }
+    }
+
+    &__cta-laptop {
+        @include laptop-s {
+            display: flex !important;
+        }
+
+        column-gap: 1rem;
+        margin-left: auto;
+
+        .accessibility-toggle {
+            border-radius: 18px;
+            padding: 16px;
+
         }
     }
 

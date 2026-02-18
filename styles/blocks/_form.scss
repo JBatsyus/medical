@@ -133,6 +133,7 @@
         border: 1px solid #d9d9d9;
         border-radius: 8px;
         padding: 4px 16px;
+        top: 48px;
         // margin-top: 8px;
     }
 
@@ -140,6 +141,24 @@
         position: relative;
         padding-block: 12px;
         border-bottom: var(--border-gray_light);
+    }
+
+    &__field .choices[data-type*=select-one]:after {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 5px;
+        background: url('../icons/vv.svg') no-repeat center / contain;
+        border: none;
+        position: absolute;
+        right: 11.5px;
+        top: 50%;
+        margin-top: -3px;
+        pointer-events: none;
+    }
+
+    &__field .choices[data-type*=select-one].is-open:after {
+        transform: rotate(180deg);
     }
 
     &__field .choices__list--dropdown .choices__item:last-child {

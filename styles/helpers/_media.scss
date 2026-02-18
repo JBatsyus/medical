@@ -5,6 +5,7 @@ $laptop:1440.98;
 $laptop-s:1119.98;
 $tablet:1023.98;
 $mobile:767.98;
+$mobile-m:570.98;
 $mobile-s:480.98;
 
 @mixin laptop-above {
@@ -53,12 +54,17 @@ $mobile-s:480.98;
         @content
     }
 }
-
+@mixin mobile-m {
+    @media (width <=rem($mobile-m)) {
+        @content
+    }
+}
 @mixin mobile-s {
     @media (width <=rem($mobile-s)) {
         @content
     }
 }
+
 
 // эффект наведения будет срабатывать только на устройствах без тач скрина по умолчанию, если тач-чкрин, то буде срабатывать activ с теми же свойствами
 

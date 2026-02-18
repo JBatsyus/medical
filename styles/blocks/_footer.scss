@@ -114,7 +114,13 @@
                 border-bottom: none;
             }
         }
+
+        
     }
+    &__dev {
+            font-weight: 600;
+            color: var(--blue_dark);
+        }
 
     &__contacts {
         display: flex;
@@ -282,6 +288,7 @@
         border-radius: 18px;
         padding: 10px 12px;
         display: flex;
+        gap: 16px;
         white-space: nowrap;
         height: 38px;
         align-items: center;

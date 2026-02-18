@@ -62,6 +62,7 @@
     &__title {
         padding-bottom: 24px;
         border-bottom: 1px solid var(--gray_1);
+        line-height: 1.2;
 
         @include tablet {
             padding-bottom: 20px;
@@ -79,6 +80,7 @@
     &__description {
         padding-top: 27px;
         margin-bottom: 40px;
+        line-height: 1.6;
 
         @include tablet {
             font-size: 18px;
@@ -132,6 +134,10 @@
     }
 
     @include mobile {
+        aspect-ratio: 2 / 1;
+    }
+
+    @include mobile-m {
         aspect-ratio: 1;
     }
 
@@ -309,7 +315,8 @@
         .swiper-pagination-bullet.swiper-pagination-bullet-active {
             background-color: var(--white);
         }
-          /* Скрыть буллеты, которые не являются активными или ближайшими соседями */
+
+        /* Скрыть буллеты, которые не являются активными или ближайшими соседями */
         .swiper-pagination-bullet {
             opacity: 0 !important;
             transition: opacity 0.4s;
@@ -348,6 +355,10 @@
         }
 
         @include mobile {
+           
+            gap: 12px;
+        }
+         @include mobile-m {
             grid-template-columns: 1fr;
             gap: 12px;
         }
