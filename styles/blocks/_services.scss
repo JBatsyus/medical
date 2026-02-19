@@ -68,10 +68,10 @@
             display: flex;
             align-items: stretch;
 
-            @include mobile {
-                flex-direction: column;
-                row-gap: 12px;
-            }
+            // @include mobile {
+            //     flex-direction: column;
+            //     row-gap: 12px;
+            // }
         }
 
         .swiper-slide {
@@ -119,10 +119,17 @@
                 right: -61px;
             }
 
+
             @include mobile {
                 height: 140px;
                 right: 0px;
             }
+
+            @include mobile-s {
+                height: 100px;
+                right: 0px;
+            }
+
         }
 
         &--image-1::after {
@@ -176,10 +183,11 @@
 
         @include mobile {
             margin-bottom: 24px;
-            max-width: 100%;
-        }
-        @include mobile-m{
              max-width: 205px;
+        }
+
+        @include mobile-m {
+            max-width: 200px;
         }
 
     }

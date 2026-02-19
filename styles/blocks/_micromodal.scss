@@ -6,23 +6,7 @@
 
 }
 
-.scroll-cta {
-    position: fixed;
-    bottom: 0px;
-    z-index: 99;
-    width: 100%;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    backdrop-filter: blur(6px);
-background: rgba(255, 255, 255, 0.01);
 
-    .modal__cta-btn-bottom {
-        width: 100%;
-        text-align: center;
-    }
-
-}
 
 
 .modal__overlay.is-open {
@@ -217,11 +201,11 @@ background: rgba(255, 255, 255, 0.01);
             }
 
             @include mobile {
-                padding-top: 16px;
+                padding-top: 0;
                 gap: 24px;
                 overflow-y: auto; // Весь контент скроллится тут
                 max-height: 100%;
-               
+
 
             }
         }
@@ -548,7 +532,9 @@ background: rgba(255, 255, 255, 0.01);
         }
     }
 
-
+    &__cta-btn-head {
+        max-width: max-content;
+    }
 
     &__cta-title,
     &__cta-desc,

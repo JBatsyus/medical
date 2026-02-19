@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentSwiper = new Swiper('.services__swiper', {
             loop: true,
             speed: 600,
-            slidesPerView: 1,
+            slidesPerView: 1.1,
             spaceBetween: 20,
             // pagination: {
             //     el: '.services__pagination',
@@ -283,12 +283,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextEl: '.services__nav--next',
             },
             breakpoints: {
-                // 576: {
-                //     slidesPerView: 2.1,
-                //     spaceBetween: 16
-                // },
+                576: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 16
+                },
                 768: {
-                    slidesPerView: 2.1,
+                    slidesPerView: 2.01,
                     spaceBetween: 16
                 },
                 992: {
@@ -414,12 +414,16 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
 const doctorsSwiper = new Swiper('.doctors__swiper', {
     loop: true,
     speed: 600,
-    slidesPerView: 1.1,
+    slidesPerView: 1,
     spaceBetween: 20,
 
     breakpoints: {
+         480: {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+        },
         576: {
-            slidesPerView: 2,
+            slidesPerView: 1.7,
             spaceBetween: 20,
         },
         768: {
