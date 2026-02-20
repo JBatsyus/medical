@@ -50,6 +50,7 @@
             padding: 0;
             background-color: transparent;
 
+
             span {
                 font-weight: 500;
                 font-size: 16px;
@@ -70,7 +71,7 @@
 
     &__bottom {
         display: grid;
-        grid-template-columns: 213px 1fr 205px;
+        grid-template-columns: 213px 1fr 268px;
         column-gap: 2.8vw;
         align-items: center;
         transition: all 0.4s ease;
@@ -79,21 +80,30 @@
             padding-top: 30px;
             display: flex;
             justify-content: space-between;
-            column-gap: 1rem;
+            column-gap: 0.5rem;
         }
     }
 
     &__cta-laptop {
-        @include laptop-s {
-            display: flex !important;
+        display: flex;
+        column-gap: 1rem;
+
+        @include laptop {
+            margin-left: auto;
+            column-gap: 0.5rem;
         }
 
-        column-gap: 1rem;
-        margin-left: auto;
-
         .accessibility-toggle {
-            border-radius: 18px;
-            padding: 16px;
+            display: none;
+
+            @include laptop {
+                display: block;
+                border-radius: 18px;
+                padding: 12px;
+                width: 48px;
+                height: 48px;
+                min-width: max-content;
+            }
 
         }
     }
@@ -102,8 +112,8 @@
 
     &__logo {
         @include mobile {
-            height: 34px;
-            width: 176px;
+            height: 26px;
+            width: 142px;
         }
     }
 
@@ -215,28 +225,25 @@
         }
 
         .header__bottom {
-            // padding-top: 10px;
-            // padding-bottom: 10px;
-            padding: 16px 32px;
-            border-radius: 40px;
+            border: var(--border-gray_light);
+            border-radius: 20px;
+            padding: 16px 24px;
+            background: var(--white);
 
-            border: 1px solid #eaeaea;
-            // background: rgba(255, 255, 255, 0.1);
-            background: #fff;
 
             @include mobile {
-                padding: 14px;
+                border-radius: 16px;
+                padding: 8px 12px;
             }
         }
 
-        .container {
-            // border-radius: 24px;
-            // background-color: rgba(255, 255, 255, 0.3);
-            // backdrop-filter: blur(12px);
-            // -webkit-backdrop-filter: blur(12px);
-            // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            // border: 1px solid rgba(255, 255, 255, 0.3);
-
+        .accessibility-toggle {
+            display: block;
+            border-radius: 18px;
+            padding: 12px;
+            width: 48px;
+            height: 48px;
+            min-width: max-content;
         }
 
         .header__menu {

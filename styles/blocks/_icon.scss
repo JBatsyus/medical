@@ -19,14 +19,24 @@
     }
 
     &--university {
+        align-items: end;
+
         &::before {
             background-image: url('../icons/metro.svg');
         }
     }
 
     &--location {
+        align-items: end;
+
         &::before {
             background-image: url('../icons/location.svg');
+        }
+    }
+
+    &--eye {
+        &::before {
+            background-image: url('../icons/eye.svg');
         }
     }
 

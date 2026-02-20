@@ -139,7 +139,7 @@
     }
 
     &__rating {
-        flex: 0 1 145px;
+        
         gap: 16px;
         min-width: 120px;
         border: 2px solid var(--gray_light);
@@ -151,6 +151,23 @@
         height: 38px;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
+        max-width: max-content;
+        white-space: nowrap;
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; 
+        }
+
+        img {
+            width: auto; 
+            height: 18px; 
+            flex-shrink: 0; 
+            display: block;
+        }
     }
 
     &__desc {
