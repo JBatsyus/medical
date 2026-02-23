@@ -125,11 +125,17 @@
 
     &__contacts {
         display: flex;
-        gap: 64px;
+        gap: 40px;
 
         @include tablet {
             grid-row: 3;
             gap: 12px;
+            flex-wrap: wrap;
+
+            .button {
+                flex: 0 0 100%;
+                justify-content: flex-start;
+            }
         }
 
         @include mobile {
@@ -138,7 +144,24 @@
             grid-column: 1/ -1;
             grid-row: 2;
         }
+
+        .accessibility-toggle {
+            padding: 0;
+            background-color: transparent;
+
+
+            span {
+                font-weight: 500;
+                font-size: 16px;
+
+                line-height: 1.1;
+                letter-spacing: 0.01em;
+                text-align: center;
+                color: var(--blue_black);
+            }
+        }
     }
+
 
     &__right {
         display: flex;
