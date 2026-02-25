@@ -705,6 +705,7 @@
                                     <p class="services__desc">Восстановления формы и функции зуба.</p>
                                     <span class="services__price">от 2799 ₽</span>
                                 </div>
+                                <a href="javascript:void(0)" class="stretched-link" data-micromodal-trigger="modal"></a>
                             </article>
                         </div>
                         <div class="swiper-slide service-item" data-category="all aesthetics">
@@ -1689,11 +1690,6 @@
                 stroke-linejoin="round" />
         </svg>
     </button>
-    <!-- Кнопка открытия -->
-    <button class="btn btn--primary" data-micromodal-trigger="modal">
-        Подробнее о МРТ
-    </button>
-
     <!-- Модальное окно формы-->
     <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -1989,22 +1985,21 @@
     <script src="./libs/plugins/jquery.fancybox.min.js"></script>
     <script src="./libs/plugins/jquery.maskedinput.js"></script>
 
-    <!--main. -->
+    <!--main js -->
     <script src="./scripts/main.js"></script>
 
     <!-- Micromodal -->
     <script src="https://unpkg.com/micromodal@0.4.10/dist/micromodal.min.js"></script>
 
     <script>
+        //Загрушка после отправки формы
         document.addEventListener('DOMContentLoaded', () => {
             const contactForm = document.getElementById('contactForm2');
             const modalContainer = contactForm.closest('.modal__container');
             const successMessage = modalContainer.querySelector('.form-section__success-message');
 
             contactForm.addEventListener('submit', function (e) {
-                e.preventDefault(); // Предотвращаем перезагрузку страницы
-                // Имитируем успешную отправку:
-
+                e.preventDefault(); 
                 contactForm.style.display = 'none';
                 successMessage.style.display = 'flex';
                 modalContainer.classList.add('modal-success');

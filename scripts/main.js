@@ -10,18 +10,18 @@ const lenis = new Lenis({
     // - 1 = мгновенная прокрутка (без сглаживания)
     lerp: 0.5,
 
-    // Направление прокрутки: 
+    // Направление прокрутки:
     // 'vertical' — вертикальная (по умолчанию),
     // 'horizontal' — горизонтальная,
     // 'both' — оба направления (требует особой разметки)
-    direction: 'vertical',
+    direction: "vertical",
 
     // Направление жестов (для touch-устройств и трекпада):
     // 'vertical' — только вертикальные свайпы
     // 'horizontal' — только горизонтальные
     // 'both' — любые жесты
     // Полезно, чтобы избежать конфликтов с каруселями и слайдерами
-    gestureDirection: 'vertical',
+    gestureDirection: "vertical",
 
     // Включает плавную прокрутку при использовании колеса мыши
     smoothWheel: true,
@@ -43,135 +43,141 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 // Кнопка "наверх" с интеграцией Lenis
-const scrollToTopBtn = document.querySelector('.scroll-to-top');
+const scrollToTopBtn = document.querySelector(".scroll-to-top");
 if (scrollToTopBtn) {
     const updateButtonVisibility = () => {
         const shouldShow = lenis.scroll > 300 || window.scrollY > 300;
-        scrollToTopBtn.classList.toggle('visible', shouldShow);
+        scrollToTopBtn.classList.toggle("visible", shouldShow);
     };
 
-    lenis.on('scroll', updateButtonVisibility);
+    lenis.on("scroll", updateButtonVisibility);
     updateButtonVisibility();
 
-    scrollToTopBtn.addEventListener('click', (e) => {
+    scrollToTopBtn.addEventListener("click", (e) => {
         e.preventDefault();
         lenis.scrollTo(0);
     });
 }
 
-
-
-
 // МОБИЛЬНОЕ МЕНЮ
-const burger = document.querySelector('.header__burger');
-const menu = document.querySelector('.menu-mob');
+const burger = document.querySelector(".header__burger");
+const menu = document.querySelector(".menu-mob");
 const body = document.body;
 
 // 1. Логика открытия/закрытия бургера
 if (burger && menu) {
-    burger.addEventListener('click', () => {
-        const isActive = burger.classList.toggle('active');
-        menu.classList.toggle('active');
-        body.classList.toggle('no-scroll', isActive);
+    burger.addEventListener("click", () => {
+        const isActive = burger.classList.toggle("active");
+        menu.classList.toggle("active");
+        body.classList.toggle("no-scroll", isActive);
     });
 
     // 2. Логика клика по ссылкам (включая скролл)
     const allLinks = document.querySelectorAll('a[href^="#"]');
 
-    allLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+    allLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
             lenis.start();
-            const targetId = this.getAttribute('href');
+            const targetId = this.getAttribute("href");
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
                 e.preventDefault(); // Убираем хеш из URL и отменяем прыжок
 
                 // Закрываем мобильное меню, если клик был в нем
-                burger.classList.remove('active');
-                menu.classList.remove('active');
-                body.classList.remove('no-scroll');
+                burger.classList.remove("active");
+                menu.classList.remove("active");
+                body.classList.remove("no-scroll");
 
                 // Плавный скролл с учетом высоты шапки
-                const headerHeight = document.querySelector('.header').offsetHeight || 0;
+                const headerHeight =
+                    document.querySelector(".header").offsetHeight || 0;
                 const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - (headerHeight + 20);
+                const offsetPosition =
+                    elementPosition + window.pageYOffset - (headerHeight + 20);
 
                 window.scrollTo({
                     top: offsetPosition,
-                    behavior: 'smooth'
+                    behavior: "smooth",
                 });
             }
-
         });
     });
 }
-
-window.addEventListener('scroll', function () {
-    const header = document.querySelector('.header');
+// Скролл хедера
+window.addEventListener("scroll", function () {
+    const header = document.querySelector(".header");
 
     if (window.scrollY > 50) {
-        header.classList.add('header--scrolled');
+        header.classList.add("header--scrolled");
     } else {
-        header.classList.remove('header--scrolled');
+        header.classList.remove("header--scrolled");
     }
 });
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    var beforeAfterSwiper = new Swiper('.before-after__swiper', {
+document.addEventListener("DOMContentLoaded", function () {
+    // Слайдер ДО/ПОСЛЕ
+    var beforeAfterSwiper = new Swiper(".before-after__swiper", {
         loop: true,
         speed: 600,
         slidesPerView: 1.2,
         spaceBetween: 16,
-        // Важно: отключаем стандартную блокировку касаний, 
-        // чтобы TwentyTwenty мог перехватить событие
         touchStartPreventDefault: false,
+
+        // Слежение за изменениями DOM и контейнера
+        observer: true,
+        observeParents: true,
 
         breakpoints: {
             576: {
                 slidesPerView: 1.1,
-                spaceBetween: 16
+                spaceBetween: 16,
             },
             768: {
                 slidesPerView: 2,
-                spaceBetween: 20
+                spaceBetween: 20,
             },
             1200: {
                 slidesPerView: 3,
-                spaceBetween: 20
+                spaceBetween: 20,
             },
         },
 
         navigation: {
-            prevEl: '.before-after__nav--prev',
-            nextEl: '.before-after__nav--next',
+            prevEl: ".before-after__nav--prev",
+            nextEl: ".before-after__nav--next",
         },
 
         pagination: {
-            el: '.before-after__pagination',
+            el: ".before-after__pagination",
             dynamicBullets: true,
             clickable: true,
         },
 
         on: {
             init: function () {
-                // 2. Инициализируем TwentyTwenty внутри слайдов
-                $(".twentytwenty-container").twentytwenty({
-                    default_offset_pct: 0.5,
-                    orientation: 'horizontal',
-                    before_label: 'Было',
-                    after_label: 'Стало',
-                    no_overlay: false, // показывать надписи "before/after"
-                    move_with_handle_only: true, // движение только за ручку
-                    click_to_move: false
-                });
+                initTwentyTwenty();
             },
-        }
+            // Пересчитываем TwentyTwenty при смене брейкпоинтов и обновлении Swiper
+            resize: function () {
+                $(window).trigger("resize");
+            },
+        },
     });
 
-    // 3. Блокируем перелистывание слайдов Swiper, когда тянем ползунок
-    // Используем делегирование событий, так как ползунки создаются динамически
+    function initTwentyTwenty() {
+        $(".twentytwenty-container").twentytwenty({
+            default_offset_pct: 0.5,
+            orientation: "horizontal",
+            before_label: "Было",
+            after_label: "Стало",
+            no_overlay: false,
+            move_with_handle_only: true,
+            click_to_move: false,
+        });
+    }
+
+    // Блокировка Swiper при использовании ползунка
     $(document).on("mousedown touchstart", ".twentytwenty-handle", function () {
         beforeAfterSwiper.allowTouchMove = false;
     });
@@ -180,19 +186,21 @@ document.addEventListener('DOMContentLoaded', function () {
         beforeAfterSwiper.allowTouchMove = true;
     });
 
+    // Модальное окно - микромодал. Не фансибокс, тк фансибокс не предназначен для коммерческого использования
+
     MicroModal.init({
         awaitOpenAnimation: true,
         awaitCloseAnimation: true,
         onShow: (modal, trigger) => {
             // Останавливаем Lenis (с проверкой на существование)
             if (window.lenis) window.lenis.stop();
-            else if (typeof lenis !== 'undefined') lenis.stop();
+            else if (typeof lenis !== "undefined") lenis.stop();
 
             if (trigger) {
-                const titleText = trigger.getAttribute('data-title');
-                const btnText = trigger.getAttribute('data-btn');
-                const modalTitle = modal.querySelector('.modal__title');
-                const modalSubmitBtn = modal.querySelector('.form-section__submit');
+                const titleText = trigger.getAttribute("data-title");
+                const btnText = trigger.getAttribute("data-btn");
+                const modalTitle = modal.querySelector(".modal__title");
+                const modalSubmitBtn = modal.querySelector(".form-section__submit");
 
                 if (titleText && modalTitle) modalTitle.textContent = titleText;
                 if (btnText && modalSubmitBtn) modalSubmitBtn.textContent = btnText;
@@ -202,13 +210,13 @@ document.addEventListener('DOMContentLoaded', function () {
         onClose: (modal) => {
             // 1. Запускаем Lenis обратно
             if (window.lenis) window.lenis.start();
-            else if (typeof lenis !== 'undefined') lenis.start();
+            else if (typeof lenis !== "undefined") lenis.start();
 
             // 2. Страховка от CSS-блокировки (удаляем overflow: hidden)
             // Делаем небольшую задержку, чтобы анимация закрытия успела завершиться
             setTimeout(() => {
-                document.documentElement.style.removeProperty('overflow');
-                document.body.style.removeProperty('overflow');
+                document.documentElement.style.removeProperty("overflow");
+                document.body.style.removeProperty("overflow");
             }, 100);
 
             // очищаем модалку
@@ -222,54 +230,51 @@ document.addEventListener('DOMContentLoaded', function () {
             //     success.style.display = 'none';
             //     form.reset(); // Очистить поля
             // }
-        }
-
-
+        },
     });
-    // выпадающий список социальных сетей
+    // Выпадающий список социальных сетей
 
+    const socialDropdowns = document.querySelectorAll(".social-dropdown");
 
-    const socialDropdowns = document.querySelectorAll('.social-dropdown');
+    socialDropdowns.forEach((dropdown) => {
+        const toggle = dropdown.querySelector(".social-dropdown__toggle");
 
-    socialDropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.social-dropdown__toggle');
-
-        toggle.addEventListener('click', (event) => {
+        toggle.addEventListener("click", (event) => {
             event.stopPropagation();
 
-            socialDropdowns.forEach(otherDropdown => {
+            socialDropdowns.forEach((otherDropdown) => {
                 if (otherDropdown !== dropdown) {
-                    otherDropdown.classList.remove('open');
-                    otherDropdown.querySelector('.social-dropdown__toggle').setAttribute('aria-expanded', 'false');
+                    otherDropdown.classList.remove("open");
+                    otherDropdown
+                        .querySelector(".social-dropdown__toggle")
+                        .setAttribute("aria-expanded", "false");
                 }
             });
 
-            const isOpen = dropdown.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', isOpen);
+            const isOpen = dropdown.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", isOpen);
         });
     });
 
-
-    document.addEventListener('click', () => {
-        socialDropdowns.forEach(dropdown => {
-            dropdown.classList.remove('open');
-            const toggle = dropdown.querySelector('.social-dropdown__toggle');
-            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.addEventListener("click", () => {
+        socialDropdowns.forEach((dropdown) => {
+            dropdown.classList.remove("open");
+            const toggle = dropdown.querySelector(".social-dropdown__toggle");
+            if (toggle) toggle.setAttribute("aria-expanded", "false");
         });
     });
+    // Свайпер Услуги
 
-
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const serviceItems = document.querySelectorAll('.service-item');
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const serviceItems = document.querySelectorAll(".service-item");
     let currentSwiper = null;
-
 
     function initSwiper() {
         if (currentSwiper) {
             currentSwiper.destroy(true, true);
         }
 
-        currentSwiper = new Swiper('.services__swiper', {
+        currentSwiper = new Swiper(".services__swiper", {
             loop: true,
             speed: 600,
             slidesPerView: 1.1,
@@ -279,35 +284,34 @@ document.addEventListener('DOMContentLoaded', function () {
             //     clickable: true,
             // },
             navigation: {
-                prevEl: '.services__nav--prev',
-                nextEl: '.services__nav--next',
+                prevEl: ".services__nav--prev",
+                nextEl: ".services__nav--next",
             },
             breakpoints: {
                 576: {
                     slidesPerView: 1.5,
-                    spaceBetween: 16
+                    spaceBetween: 16,
                 },
                 768: {
                     slidesPerView: 2.01,
-                    spaceBetween: 16
+                    spaceBetween: 16,
                 },
                 992: {
                     slidesPerView: 3,
-                    spaceBetween: 20
+                    spaceBetween: 20,
                 },
-
-            }
+            },
         });
     }
 
     // Фильтрация карточек
     function filterServices(category) {
-        serviceItems.forEach(item => {
-            const categories = item.getAttribute('data-category').split(' ');
-            if (category === 'all' || categories.includes(category)) {
-                item.style.display = 'flex';
+        serviceItems.forEach((item) => {
+            const categories = item.getAttribute("data-category").split(" ");
+            if (category === "all" || categories.includes(category)) {
+                item.style.display = "flex";
             } else {
-                item.style.display = 'none';
+                item.style.display = "none";
             }
         });
 
@@ -320,17 +324,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Обработчики фильтров
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const category = this.getAttribute('data-filter');
+    filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            const category = this.getAttribute("data-filter");
 
             // Обновляем активную кнопку
-            filterButtons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.setAttribute('aria-selected', 'false');
+            filterButtons.forEach((btn) => {
+                btn.classList.remove("active");
+                btn.setAttribute("aria-selected", "false");
             });
-            this.classList.add('active');
-            this.setAttribute('aria-selected', 'true');
+            this.classList.add("active");
+            this.setAttribute("aria-selected", "true");
 
             // Фильтруем карточки
             filterServices(category);
@@ -339,44 +343,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Инициализация при загрузке
     initSwiper();
-    filterServices('all');
-
-
-
+    filterServices("all");
 });
 
-
-
-const heroSwiper = new Swiper('.hero-slider__swiper', {
+//Слайдер главная секция
+const heroSwiper = new Swiper(".hero-slider__swiper", {
     loop: true,
     effect: "fade",
     fadeEffect: {
-        crossFade: true
+        crossFade: true,
     },
-    // speed: 1000,
     autoplay: {
         delay: 2500,
         disableOnInteraction: false,
-        pauseOnMouseEnter: true
+        pauseOnMouseEnter: true,
     },
     navigation: {
-        prevEl: '.slider__nav--prev',
-        nextEl: '.slider__nav--next',
+        prevEl: ".slider__nav--prev",
+        nextEl: ".slider__nav--next",
     },
     pagination: {
-        el: '.hero-slider__pagination',
+        el: ".hero-slider__pagination",
         dynamicBullets: true,
         clickable: true,
     },
 });
-
-const specialOffersSwiper = new Swiper('.special-offers__swiper', {
+//Слайдер Специальные предложения
+const specialOffersSwiper = new Swiper(".special-offers__swiper", {
     loop: true,
     speed: 600,
     slidesPerView: 1,
     spaceBetween: 20,
 
-    // Адаптивность
     breakpoints: {
         576: {
             slidesPerView: 1.1,
@@ -397,28 +395,27 @@ const specialOffersSwiper = new Swiper('.special-offers__swiper', {
     },
 
     navigation: {
-        prevEl: '.special-offers__nav--prev',
-        nextEl: '.special-offers__nav--next',
+        prevEl: ".special-offers__nav--prev",
+        nextEl: ".special-offers__nav--next",
     },
     pagination: {
-        el: '.special-offers__pagination',
+        el: ".special-offers__pagination",
         dynamicBullets: true,
         clickable: true,
-        type: 'bullets',
-        bulletClass: 'swiper-pagination-bullet',
-        bulletActiveClass: 'swiper-pagination-bullet-active',
+        type: "bullets",
+        bulletClass: "swiper-pagination-bullet",
+        bulletActiveClass: "swiper-pagination-bullet-active",
     },
-
 });
-
-const doctorsSwiper = new Swiper('.doctors__swiper', {
+// Слайдер Доктора
+const doctorsSwiper = new Swiper(".doctors__swiper", {
     loop: true,
     speed: 600,
     slidesPerView: 1,
     spaceBetween: 20,
 
     breakpoints: {
-         480: {
+        480: {
             slidesPerView: 1.5,
             spaceBetween: 20,
         },
@@ -441,22 +438,18 @@ const doctorsSwiper = new Swiper('.doctors__swiper', {
     },
 
     navigation: {
-        prevEl: '.doctors__nav--prev',
-        nextEl: '.doctors__nav--next',
+        prevEl: ".doctors__nav--prev",
+        nextEl: ".doctors__nav--next",
     },
 
     pagination: {
-        el: '.doctors__pagination',
+        el: ".doctors__pagination",
         dynamicBullets: true,
         clickable: true,
     },
 });
 
-
-
-
-
-// Свайпер в секции О нашей клинике
+// Слайдер в секции О нашей клинике
 var swiperBullet = new Swiper(".about-clinic__swiper-bullet", {
     spaceBetween: 16,
     slidesPerView: 4,
@@ -465,14 +458,13 @@ var swiperBullet = new Swiper(".about-clinic__swiper-bullet", {
     breakpoints: {
         576: {
             slidesPerView: 4,
-            spaceBetween: 16
+            spaceBetween: 16,
         },
         768: {
             slidesPerView: 6,
-            spaceBetween: 16
+            spaceBetween: 16,
         },
-    }
-
+    },
 });
 var swiperBase = new Swiper(".about-clinic__swiper-base", {
     spaceBetween: 10,
@@ -482,7 +474,7 @@ var swiperBase = new Swiper(".about-clinic__swiper-base", {
     },
 });
 
-// Свайпер в модальном окне
+// Слайдер в модальном окне
 
 var swiperBulletModal = new Swiper(".modal__swiper-bullet", {
     spaceBetween: 5,
@@ -492,17 +484,16 @@ var swiperBulletModal = new Swiper(".modal__swiper-bullet", {
     watchSlidesProgress: true,
     breakpoints: {
         768: {
-            direction: 'vertical',
+            direction: "vertical",
             slidesPerView: 4,
-            spaceBetween: 8
+            spaceBetween: 8,
         },
         1024: {
-            direction: 'horizontal',
+            direction: "horizontal",
             slidesPerView: 4, // или сколько вам нужно на десктопе
-            spaceBetween: 8
-        }
-    }
-
+            spaceBetween: 8,
+        },
+    },
 });
 var swiperBaseModal = new Swiper(".modal__swiper-base", {
     spaceBetween: 10,
@@ -519,26 +510,24 @@ var swiperBaseModal = new Swiper(".modal__swiper-base", {
 
 // Выпадающий список
 const initChoices = () => {
-    // Находим ВСЕ элементы с классом .default
-    const elements = document.querySelectorAll('.default');
+    const elements = document.querySelectorAll(".default");
 
-    elements.forEach(el => {
+    elements.forEach((el) => {
         // Проверка, чтобы не инициализировать дважды
-        if (!el.classList.contains('is-initialized')) {
+        if (!el.classList.contains("is-initialized")) {
             new Choices(el, {
                 searchEnabled: false,
                 shouldSort: false,
-                itemSelectText: '', // Убирает лишний текст "Press to select"
+                itemSelectText: "", // Убирает лишний текст "Press to select"
             });
             // Помечаем, что селект уже настроен
-            el.classList.add('is-initialized');
+            el.classList.add("is-initialized");
         }
     });
 };
 
-// Запускаем при загрузке страницы
-document.addEventListener('DOMContentLoaded', initChoices);
-/// mask
+// Маска для формы
+document.addEventListener("DOMContentLoaded", initChoices);
 $(function () {
     $(".input-phone").mask("+7 (999) 999 - 99 - 99");
 });
