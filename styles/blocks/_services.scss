@@ -133,22 +133,22 @@
         }
 
         &--image-1::after {
-            background-image: url(../images/services/1.png);
+            background-image: url(../images/services/1.webp);
 
             @include mobile {
-                background-image: url(../images/services/1-m.png);
+                background-image: url(../images/services/1-m.webp);
             }
         }
 
         &--image-2::after {
-            background-image: url(../images/services/2.png);
+            background-image: url(../images/services/2.webp);
         }
 
         &--image-3::after {
-            background-image: url(../images/services/3.png);
+            background-image: url(../images/services/3.webp);
 
             @include tablet {
-                background-image: url(../images/services/3-m.png);
+                background-image: url(../images/services/3-m.webp);
             }
         }
     }
