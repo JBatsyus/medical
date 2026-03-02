@@ -274,39 +274,35 @@ document.addEventListener("DOMContentLoaded", function () {
             currentSwiper.destroy(true, true);
         }
 
-        currentSwiper = new Swiper(".services__swiper", {
-            loop: true,
-            speed: 600,
-            slidesPerView: 1.1,
-            spaceBetween: 20,
-            // pagination: {
-            //     el: '.services__pagination',
-            //     clickable: true,
-            // },
-            navigation: {
-                prevEl: ".services__nav--prev",
-                nextEl: ".services__nav--next",
-            },
-            breakpoints: {
-                576: {
-                    slidesPerView: 1.5,
-                    spaceBetween: 16,
-                },
-                768: {
-                    slidesPerView: 2.05,
-                    spaceBetween: 16,
-                },
+      currentSwiper = new Swiper(".services__swiper", {
+    loop: true,
+    speed: 600,
+    slidesPerView: 1.1,
+    spaceBetween: 12,
+    navigation: {
+        prevEl: ".services__nav--prev",
+        nextEl: ".services__nav--next",
+    },
+    breakpoints: {
+        576: {
+            slidesPerView: 1.5,
+            spaceBetween: 12
+        },
+        768: {
+            slidesPerView: 2.05,
+            spaceBetween: 20
+        },
+        992: {
+            slidesPerView: 2.1,
+            spaceBetween: 16
+        },
+        1440: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        }
+    }
+});
 
-                992: {
-                    slidesPerView: 2.1,
-                    spaceBetween: 16,
-                },
-                1440: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                },
-            },
-        });
     }
 
     // Фильтрация карточек
