@@ -202,6 +202,7 @@
         background-color: var(--white);
         display: inline-block;
         max-width: max-content;
+        align-self: self-end;
 
         @include tablet {
             font-size: 16px;
