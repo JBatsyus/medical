@@ -274,34 +274,34 @@ document.addEventListener("DOMContentLoaded", function () {
             currentSwiper.destroy(true, true);
         }
 
-      currentSwiper = new Swiper(".services__swiper", {
-    loop: true,
-    speed: 600,
-    slidesPerView: 1.1,
-    spaceBetween: 12,
-    navigation: {
-        prevEl: ".services__nav--prev",
-        nextEl: ".services__nav--next",
-    },
-    breakpoints: {
-        576: {
-            slidesPerView: 1.5,
-            spaceBetween: 12
-        },
-        768: {
-            slidesPerView: 2.05,
-            spaceBetween: 20
-        },
-        992: {
-            slidesPerView: 2.1,
-            spaceBetween: 16
-        },
-        1440: {
-            slidesPerView: 3,
-            spaceBetween: 20
-        }
-    }
-});
+        currentSwiper = new Swiper(".services__swiper", {
+            loop: true,
+            speed: 600,
+            slidesPerView: 1.1,
+            spaceBetween: 12,
+            navigation: {
+                prevEl: ".services__nav--prev",
+                nextEl: ".services__nav--next",
+            },
+            breakpoints: {
+                576: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 12
+                },
+                768: {
+                    slidesPerView: 2.05,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 2.1,
+                    spaceBetween: 16
+                },
+                1440: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                }
+            }
+        });
 
     }
 
@@ -413,26 +413,26 @@ const doctorsSwiper = new Swiper(".doctors__swiper", {
     loop: true,
     speed: 600,
     slidesPerView: 1,
-    spaceBetween: 20,
+    spaceBetween: 16,
 
     breakpoints: {
-        480: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
+        450: {
+            slidesPerView: 1.2,
+
         },
         576: {
             slidesPerView: 1.7,
-            spaceBetween: 20,
+
         },
         768: {
             slidesPerView: 2,
-            spaceBetween: 20,
+
         },
         992: {
             slidesPerView: 3,
-            spaceBetween: 20,
+            spaceBetween: 16,
         },
-        1200: {
+        1400: {
             slidesPerView: 4,
             spaceBetween: 20,
         },
