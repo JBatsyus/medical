@@ -342,7 +342,7 @@
 .hero {
     &__features-list {
         display: grid;
-        
+
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
 
@@ -355,10 +355,11 @@
         }
 
         @include mobile {
-           
+
             gap: 12px;
         }
-         @include mobile-m {
+
+        @include mobile-m {
             grid-template-columns: 1fr;
             gap: 12px;
         }
